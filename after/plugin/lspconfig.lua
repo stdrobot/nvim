@@ -95,6 +95,8 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local protocol = require'vim.lsp.protocol'
+
+-- BEGIN ATTACH
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -124,6 +126,7 @@ end
 -- END ATTACH
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- BEGINS FLAGS
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -136,11 +139,15 @@ nvimlsp['clangd'].setup{
     capabilities = capabilities,
     cmd = { "clangd", "--background-index" },
     single_file_support = false,
+    init_options = {
+        fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"},
+    },
     root_dir = function()
         return vim.fn.getcwd()
     end
     
 }
+
 nvimlsp['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
