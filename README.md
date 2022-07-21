@@ -1,5 +1,6 @@
 # WHAT IS THIS?
 - Personal neovim config files
-- Currently in the process of moving mostly everything to Lua!
+- Plugins include:
+    - [lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 -standardrobot
