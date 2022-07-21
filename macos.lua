@@ -1,3 +1,4 @@
+vim.cmd([[
 set number
 set nocompatible
 filetype off
@@ -16,3 +17,4 @@ luafile ~/.config/nvim/plug.lua
 highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText guibg=NONE ctermbg=NONE
 colorscheme gruvbox
+]])

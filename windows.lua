@@ -1,4 +1,4 @@
-set number
+vim.cmd([[set number
 set nocompatible
 filetype off
 set clipboard=unnamed
@@ -16,9 +16,10 @@ augroup set_colorscheme
     autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
     autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
 augroup end
+]])
 
-source ~/.config/nvim/maps.vim
-luafile ~/.config/nvim/plug.lua
+vim.cmd 'source ~/.config/nvim/maps.vim'
+require('plug')
 
-luafile ~/.config/nvim/after/plugin/lspconfig.lua
-colorscheme nordfox
+require('after/plugin/lspconfig')
+vim.cmd('colorscheme nordfox')
