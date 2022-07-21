@@ -16,3 +16,7 @@ map <S-g> :!g++ -std=c++20 % -o %:r.exe<CR>
 map <S-f> :!%:r.exe<CR>
 map <C-S-p> :!python3 %<CR>
 map <C-]> :x<CR>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
