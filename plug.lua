@@ -3,7 +3,6 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 -- COLORSCHEMES
 Plug 'EdenEast/nightfox.nvim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 
 -- WORKFLOW PLUGINS
