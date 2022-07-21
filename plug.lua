@@ -17,6 +17,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'preservim/nerdtree'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 vim.call('plug#end')

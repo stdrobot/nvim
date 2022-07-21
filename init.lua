@@ -7,5 +7,5 @@ if vim.fn.has("unix") then
   ]])
 end
 if vim.fn.has('win32') then
-  require('windows')
+  vim.cmd [[ luafile ~/.config/nvim/windows.lua]]
 end 

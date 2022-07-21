@@ -1,4 +1,6 @@
-vim.cmd([[set number
+-- INIT CONFIG; WINDOWS
+vim.cmd([[
+set number
 set nocompatible
 filetype off
 set clipboard=unnamed
@@ -16,10 +18,7 @@ augroup set_colorscheme
     autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
     autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
 augroup end
+luafile ~/.config/nvim/maps.lua
+luafile ~/.config/nvim/plug.lua
 ]])
-
-vim.cmd 'source ~/.config/nvim/maps.vim'
-require('plug')
-
-require('after/plugin/lspconfig')
-vim.cmd('colorscheme nordfox')
+vim.cmd('colorscheme nightfox')
