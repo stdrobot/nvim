@@ -20,4 +20,5 @@ augroup set_colorscheme
 augroup end
 luafile ~/.config/nvim/maps.lua
 luafile ~/.config/nvim/plug.lua
+colorscheme nightfox
 ]])
