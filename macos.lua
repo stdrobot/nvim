@@ -13,8 +13,5 @@ let g:python3_host_prog = '/usr/bin/python'
 
 luafile ~/.config/nvim/maps.lua
 luafile ~/.config/nvim/plug.lua
-
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NonText guibg=NONE ctermbg=NONE
-colorscheme gruvbox
 ]])
+

@@ -21,4 +21,3 @@ augroup end
 luafile ~/.config/nvim/maps.lua
 luafile ~/.config/nvim/plug.lua
 ]])
-vim.cmd('colorscheme nightfox')
