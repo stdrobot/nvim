@@ -4,7 +4,7 @@
     - [lspconfig](https://github.com/neovim/nvim-lspconfig)
         - I particularly enjoy writing in C++, Python, and JavaScript. I'm learning Rust, at the moment, too.
     - [cmp](https://github.com/hrsh7th/cmp-nvim-lsp)
-    - [autopairs](https://github.com/windwp/nvim-autopairs')
+    - [autopairs](https://github.com/windwp/nvim-autopairs)
     - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
     - [NERDTree](https://github.com/preservim/nerdtree)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
