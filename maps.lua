@@ -24,6 +24,7 @@ map <C-l> <C-W>l
 ]])
 if vim.fn.has('macunix') then
     vim.cmd [[ map <S-f> :!./%:r.exe<CR>]]
-elseif vim.fn.has('win32') then
+end
+if vim.fn.has('win32') then
     vim.cmd[[ map <S-f> :!%:r.exe<CR>]]
 end
