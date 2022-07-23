@@ -174,5 +174,17 @@ nvimlsp['tsserver'].setup{
         return vim.fn.getcwd()
     end
 }
--- END FLAGS
-
+nvimlsp['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo ={
+                buildScripts = {
+                    enable = true
+                },
+            },
+        }
+    }
+}
