@@ -14,8 +14,8 @@ cmp.setup({
     snippet = {
     -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
@@ -133,6 +133,14 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local fallback_flags = {}
+if vim.loop.os_uname().sysname == "Darwin" then
+    fallback_flags = {"--target=arm64-apple-darwin", "-std=c++2a"}
+end
+if vim.fn.has('win32') then
+    fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"}
+end
+
 nvimlsp['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -140,7 +148,7 @@ nvimlsp['clangd'].setup{
     cmd = { "clangd", "--background-index" },
     single_file_support = false,
     init_options = {
-        fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"},
+        fallback_flags = fallback_flags,
     },
     root_dir = function()
         return vim.fn.getcwd()
@@ -175,4 +183,3 @@ nvimlsp['tsserver'].setup{
     end
 }
 
-nvimlsp['rust_analyzer'].setup{}

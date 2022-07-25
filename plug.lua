@@ -18,4 +18,5 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdtree'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'L3MON4D3/LuaSnip'
 vim.call('plug#end')
