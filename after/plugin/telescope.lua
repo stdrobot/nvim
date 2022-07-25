@@ -11,6 +11,8 @@ end
 -- nnoremap <silent> \\ <Cmd>Telescope buffers<CR>
 -- nnoremap <silent> ;; <Cmd>Telescope help_tags<CR>
 map("n", ";f", "<Cmd>Telescope find_files<CR>", { silent=true })
+map("n", ";r", "<cmd>Telescope live_grep<CR>", {silent=true})
+map("n", ";;", "<cmd>Telescope help_tags<CR>", {silent=true})
 
 local actions = require('telescope.actions')
 
