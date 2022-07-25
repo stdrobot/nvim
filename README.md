@@ -10,6 +10,7 @@
     - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
     - [NERDTree](https://github.com/preservim/nerdtree)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
+    - [luasnip](https://github.com/L3MON4D3/LuaSnip)
     - [telescope](https://github.com/nvim-telescope/telescope.nvim)
     - [plenary](https://github.com/nvim-lua/plenary.nvim)
     - [popup](https://github.com/nvim-lua/popup.nvim)
