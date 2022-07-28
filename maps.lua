@@ -22,7 +22,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 ]])
-if vim.loop.os_uname().sysname == 'Darwub' then
+if vim.loop.os_uname().sysname == 'Darwin' then
     vim.cmd [[ map <S-f> :!./%:r.exe<CR>]]
 elseif vim.fn.has('win32') then
     vim.cmd[[ map <S-f> :!%:r.exe<CR>]]
