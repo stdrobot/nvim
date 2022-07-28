@@ -13,7 +13,6 @@ cmp.setup({
     end,
 
     snippet = {
-    -- REQUIRED - you must specify a snippet engine
       expand = function(args)
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
@@ -23,9 +22,9 @@ cmp.setup({
       -- completion = cmp.config.window.bordered(),
       -- documentation = cmp.config.window.bordered(),
     },
-
     formatting = {
         format = function(_, vim_item)
+            if vim_item.kind == nil then return nil end
             local icons = {
                 Text = '', -- Text
                 Method = '', -- Method
@@ -54,9 +53,6 @@ cmp.setup({
                 TypeParameter = '', -- TypeParameter
             }
             vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-            if vim_item.kind == "Text" then
-                cmp.setup.buffer { enabled = false }
-            end 
             return vim_item
         end,
     },
@@ -68,22 +64,18 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
+
     -- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
     -- implement into the config immediately, haha
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
+      { 
+          name = 'nvim_lsp' 
+      },
       { name = 'luasnip' }, -- For luasnip users.
     }, {
         { name = 'buffer' },
     }),
-
-    completion = {
-        keyword_length = 1,
-        completeopt="menuo,noselect"
-    }
 })
-
-cmp.setup.buffer { enabled = false }
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
@@ -143,8 +135,7 @@ local lsp_flags = {
 local fallback_flags = {}
 if vim.loop.os_uname().sysname == "Darwin" then
     fallback_flags = {"--target=arm64-apple-darwin", "-std=c++2a"}
-end
-if vim.fn.has('win32') then
+elseif vim.fn.has('win32') then
     fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"}
 end
 -- END FLAGS
