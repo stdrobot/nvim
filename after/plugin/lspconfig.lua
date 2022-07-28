@@ -24,7 +24,6 @@ cmp.setup({
     },
     formatting = {
         format = function(_, vim_item)
-            if vim_item.kind == nil then return nil end
             local icons = {
                 Text = '', -- Text
                 Method = '', -- Method
@@ -42,7 +41,7 @@ cmp.setup({
                 Keyword = '', -- Keyword
                 Snippet = '﬌', -- Snippet
                 Color = '', -- Color
-                Files = '', -- File
+                File = '', -- File
                 Reference = '', -- Reference
                 Folder = '', -- Folder
                 EnuMember = '', -- EnumMember
@@ -56,7 +55,6 @@ cmp.setup({
             return vim_item
         end,
     },
-
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -68,9 +66,7 @@ cmp.setup({
     -- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
     -- implement into the config immediately, haha
     sources = cmp.config.sources({
-      { 
-          name = 'nvim_lsp' 
-      },
+      { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
     }, {
         { name = 'buffer' },
@@ -181,4 +177,3 @@ nvimlsp['tsserver'].setup{
         return vim.fn.getcwd()
     end
 }
-
