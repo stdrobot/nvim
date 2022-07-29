@@ -121,6 +121,11 @@ end
 -- END ATTACH
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.CompletionClientCapabilities = {
+    completionItemKind = {
+        valueSet = {2,3,4,5,6,7,8,9,19,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
+    }
+}
 
 -- BEGINS FLAGS
 local lsp_flags = {
@@ -177,3 +182,4 @@ nvimlsp['tsserver'].setup{
         return vim.fn.getcwd()
     end
 }
+nvimlsp['rust_analyzer'].setup{}
