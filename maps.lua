@@ -13,7 +13,7 @@ map<A-s> :w<kEnter>
 map<S-t> :tabnew<CR>
 imap <A-s> <Esc>:w<kEnter>i
 inoremap {<Enter> {<Enter>}<Esc>O
-map <S-n> :!node %<CR>
+map <S-?> :!node %<CR>
 map <S-g> :!g++ -std=c++20 % -o %:r.exe<CR>
 map <C-S-p> :!python3 %<CR>
 map <C-]> :x<CR>
