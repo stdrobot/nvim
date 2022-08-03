@@ -6,6 +6,7 @@ set clipboard=unnamed
 set termguicolors
 set ruler
 set mouse=a
+set inccommand=nosplit
 set hidden
 set completeopt-=preview
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab

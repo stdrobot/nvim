@@ -121,11 +121,6 @@ end
 -- END ATTACH
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.CompletionClientCapabilities = {
-    completionItemKind = {
-        valueSet = {2,3,4,5,6,7,8,9,19,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
-    }
-}
 
 -- BEGINS FLAGS
 local lsp_flags = {
@@ -133,27 +128,35 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-local fallback_flags = {}
-if vim.loop.os_uname().sysname == "Darwin" then
-    fallback_flags = {"--target=arm64-apple-darwin", "-std=c++2a"}
-elseif vim.fn.has('win32') then
-    fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"}
+local set_fallback_flags = function()
+    if vim.loop.os_uname().sysname == "Darwin" then
+        local fallback_flags = {"--target=arm64-apple-darwin", "-std=c++2a", } 
+    elseif vim.fn.has('win32') then
+        local fallback_flags = {"--target=x86_x64-w64-windows-gnu", "-std=c++20"}
+    end
 end
+
+local arguments = {}
+if vim.loop.os_uname().sysname == "Darwin" then
+    arguments = {"-std=c++2a"} 
+elseif vim.fn.has('win32') then
+    arguments = {"-std=c++20"}
+end
+
 -- END FLAGS
 
 nvimlsp['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
-    cmd = { "clangd", "--background-index" },
-    single_file_support = false,
+    cmd = { "clangd", "--background-index", "--clang-tidy"},
+   -- single_file_support = false,
     init_options = {
         fallback_flags = fallback_flags,
-    },
+    },        
     root_dir = function()
         return vim.fn.getcwd()
-    end
-    
+    end  
 }
 
 nvimlsp['pyright'].setup{
@@ -183,3 +186,26 @@ nvimlsp['tsserver'].setup{
     end
 }
 nvimlsp['rust_analyzer'].setup{}
+
+nvimlsp['sumneko_lua'].setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
