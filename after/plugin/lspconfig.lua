@@ -112,9 +112,8 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-    
+
     local opts = { noremap=true, silent=true }
     require("nvim-autopairs").setup{}
 end
@@ -153,10 +152,10 @@ nvimlsp['clangd'].setup{
    -- single_file_support = false,
     init_options = {
         fallback_flags = fallback_flags,
-    },        
+    },
     root_dir = function()
         return vim.fn.getcwd()
-    end  
+    end
 }
 
 nvimlsp['pyright'].setup{
