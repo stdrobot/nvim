@@ -184,7 +184,37 @@ nvimlsp['tsserver'].setup{
         return vim.fn.getcwd()
     end
 }
-nvimlsp['rust_analyzer'].setup{}
+nvimlsp['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+--[[
+nvimlsp['java-language-server'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    cmd = {
+        'java', 'Users/jonahperry/java-language-server/dist/launch_mac.sh',
+        '-jar', '/opt/homebrew/Cellar/jdtls/1.14.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+         '-configuration', '/opt/homebrew/bin/jdtls/config_mac',
+    },
+    root_dir = function()
+        return vim.fn.getcwd()
+    end
+}
+]]--
+nvimlsp['jdtls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+   --  cmd = {"jdtls", "-configuration", "/Users/jonahperry/jdt-language-server-latest/config_mac"},
+    root_dir = function()
+        return vim.fn.getcwd()
+    end
+
+}
+
 
 nvimlsp['sumneko_lua'].setup {
   settings = {
