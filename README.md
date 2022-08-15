@@ -15,6 +15,8 @@
     - [plenary](https://github.com/nvim-lua/plenary.nvim)
     - [popup](https://github.com/nvim-lua/popup.nvim)
     - [web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+    - [lspsaga](https://github.com/glepnir/lspsaga.nvim)
+    - [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on the OS (MacOS' stock terminal doesn't support more than a 256 color palette, so :shrugs:).
 
 # Why do I use this config?
