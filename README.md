@@ -1,6 +1,6 @@
 # WHAT IS THIS?
 ---
-# Personal neovim config files
+## Personal neovim config files
 - I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as my plugin manager!
 - Plugins include:
     - [lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -17,10 +17,10 @@
     - [web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
     - [lspsaga](https://github.com/glepnir/lspsaga.nvim)
     - [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
-- I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on the OS (MacOS' stock terminal doesn't support more than a 256 color palette, so :shrugs:).
+- I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on the OS (MacOS' stock terminal doesn't support more than a 256 color palette, so :shrug:).
 
 # Why do I use this config?
 ---
 Most of these plugins are fairly light, responsive, and configurable. Moreover, they offer plenty of functionality for what I do (some web-app stuff, smaller C++ projects, etc.). Should I need or want to move to larger codebases, more complicated projects, I'll look towards other robust plugins.
 
--standardrobot
+-standardrobot :robot:
