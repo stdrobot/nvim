@@ -1,6 +1,6 @@
 # WHAT IS THIS?
 ---
-- Personal neovim config files
+# Personal neovim config files
 - I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as my plugin manager!
 - Plugins include:
     - [lspconfig](https://github.com/neovim/nvim-lspconfig)
