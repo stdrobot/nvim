@@ -23,7 +23,11 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
-    vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
+    if vim.fn.getcwd() == '/Users/jonahperry/.scripts' then
+        vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]]
+    else
+        vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
+    end
 elseif vim.fn.has('win32') then
     vim.cmd [[ map <S-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]]
 end
