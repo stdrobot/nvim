@@ -200,7 +200,6 @@ nvimlsp['jdtls'].setup{
 
 }
 
-
 nvimlsp['sumneko_lua'].setup {
   settings = {
     Lua = {

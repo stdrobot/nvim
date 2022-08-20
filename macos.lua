@@ -1,6 +1,7 @@
 vim.cmd([[
 set number
 set nocompatible
+set ve+=onemore
 filetype off
 set clipboard=unnamed
 set termguicolors

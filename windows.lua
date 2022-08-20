@@ -1,6 +1,7 @@
 -- INIT CONFIG; WINDOWS
 vim.cmd([[
 set number
+set ve+=onemore
 set nocompatible
 filetype off
 set clipboard=unnamed
