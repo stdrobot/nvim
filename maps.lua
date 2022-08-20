@@ -23,7 +23,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
-    if vim.fn.getcwd() == '/Users/jonahperry/.scripts' then
+    if vim.fn.getcwd() == '/Users/jonahperry/.scripts/dev' then
         vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]]
     else
         vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
