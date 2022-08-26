@@ -6,8 +6,8 @@ vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 map <S-Right> <C-w><C-w><CR>
 map <S-Left> <C-h><CR>
-map <S-l> :vsplit<CR>
-map <S-k> :split<CR>
+map <C-l> :vsplit<CR>
+map <C-k> :split<CR>
 map<A-q> :q<kEnter>
 map<A-s> :w<kEnter>
 map<S-t> :tabnew<CR>
