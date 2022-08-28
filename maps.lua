@@ -1,4 +1,3 @@
-
 -- Mappings
 vim.cmd([[
 nmap <C-n> :NERDTreeToggle<CR>
@@ -17,10 +16,6 @@ map <S-?> :!node %<CR>
 map <S-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>
 map <C-S-p> :!python3 %<CR>
 map <C-]> :x<CR>
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
     if vim.fn.getcwd() == '/Users/jonahperry/.scripts/dev' then
@@ -36,3 +31,9 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 elseif vim.fn.has('win32') then
     vim.cmd[[ map <S-f> :!%:r.exe<CR>]]
 end
+--[[
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+]]--

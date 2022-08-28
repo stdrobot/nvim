@@ -1,13 +1,15 @@
 vim.cmd([[
+set foldmethod=manual
 set number
 set nocompatible
-set ve+=onemore
 filetype off
-set clipboard=unnamed
+set clipboard=unnamed "OSX
+set cb=unnamed
 set termguicolors
-set ruler
+set ruler  
 set mouse=a
 set inccommand=nosplit
+set ve+=onemore
 set hidden
 set completeopt-=preview
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -24,6 +26,11 @@ augroup set_colorscheme
     autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
     autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
 augroup end
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
+augroup END
 colorscheme nightfox
 ]])
 
