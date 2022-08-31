@@ -1,5 +1,7 @@
 -- Mappings
 vim.cmd([[
+vnoremap < <gv
+vnoremap > >gv
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
