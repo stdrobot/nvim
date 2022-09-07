@@ -34,3 +34,4 @@ augroup END
 colorscheme nightfox
 ]])
 
+vim.opt.backup = false
