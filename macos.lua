@@ -35,3 +35,6 @@ colorscheme nightfox
 ]])
 
 vim.opt.backup = false
+vim.opt.backspace = 'start,eol,indent'
+vim.opt.si = true
+vim.opt.ai = true

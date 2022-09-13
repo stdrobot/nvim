@@ -182,6 +182,8 @@ nvimlsp['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    cmd = { "typescript-language-server", "--stdio" },
     root_dir = function()
         return vim.fn.getcwd()
     end
@@ -224,3 +226,5 @@ nvimlsp['sumneko_lua'].setup {
     },
   },
 }
+
+nvimlsp['gopls'].setup{}
