@@ -10,7 +10,7 @@ map("n", ";f", "<cmd>lua require('telescope.builtin').find_files({find_commands=
 map("n", ";r", "<cmd>lua require('telescope.builtin').live_grep({find_commands='rg'})<CR>", {silent=true})
 map("n", ";;", "<cmd>lua require('telescope.builtin').help_tags()<CR>", {silent=true})
 map("n", ";b", "<cmd>lua require('telescope.builtin').buffers()<CR>", {silent=true})
-
+map("n", ";o", "<cmd>lua require('telescope.builtin').oldfiles()<CR>", {silent=true})
 local actions = require('telescope.actions')
 
 require('telescope').setup {
