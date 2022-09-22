@@ -24,7 +24,5 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug('glepnir/lspsaga.nvim', { branch = 'main' })
-
 Plug 'mfussenegger/nvim-jdtls'
-
 vim.call('plug#end')
