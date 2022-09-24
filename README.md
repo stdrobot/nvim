@@ -17,7 +17,9 @@
     - [web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
     - [lspsaga](https://github.com/glepnir/lspsaga.nvim)
     - [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
-- I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on the OS (MacOS' stock terminal doesn't support more than a 256 color palette, so :shrug:).
+    - [Pretty-fold](https://github.com/anuvyklack/pretty-fold.nvim)
+    - [alpha](https://github.com/goolord/alpha-nvim)
+- I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on what I'm feeling.
 
 # Why do I use this config?
 ---

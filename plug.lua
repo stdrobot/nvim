@@ -1,10 +1,11 @@
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
--- Colorschemes
+-- Colorschemes / Graphics
 Plug 'EdenEast/nightfox.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'goolord/alpha-nvim'
+Plug 'arcticicestudio/nord'
 -- LSP + bells n whistles (autocomplete, autopairs, etc.)
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
