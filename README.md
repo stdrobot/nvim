@@ -18,6 +18,7 @@
     - [lspsaga](https://github.com/glepnir/lspsaga.nvim)
     - [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
     - [Pretty-fold](https://github.com/anuvyklack/pretty-fold.nvim)
+    - [surround](https://github.com/tpope/vim-surround)
     - [alpha](https://github.com/goolord/alpha-nvim)
 - I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on what I'm feeling.
 

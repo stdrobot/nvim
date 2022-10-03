@@ -188,6 +188,7 @@ nvimlsp['tsserver'].setup{
         return vim.fn.getcwd()
     end
 }
+
 nvimlsp['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,

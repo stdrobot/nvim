@@ -13,6 +13,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 
 Plug 'anuvyklack/pretty-fold.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -26,4 +27,8 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug('glepnir/lspsaga.nvim', { branch = 'main' })
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'tpope/vim-surround'
+Plug 'onsails/lspkind.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/prettier.nvim'
 vim.call('plug#end')
