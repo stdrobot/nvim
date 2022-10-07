@@ -1,10 +1,10 @@
 # WHAT IS THIS?
 ---
 ## Personal neovim config files
-- I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as my plugin manager!
+- I use [junegunn's vim-plug](https://github.com/junegunn/vim-plug) as my plugin manager.
 - Plugins include:
     - [lspconfig](https://github.com/neovim/nvim-lspconfig)
-        - I particularly enjoy writing in C++, Python, and JavaScript. I'm learning Rust, at the moment, too. \#BlazinglyFast or whatever people say.
+        - I particularly enjoy writing in C++, Python, and JavaScript. I'm learning Rust, at the moment, too.    
     - [cmp](https://github.com/hrsh7th/cmp-nvim-lsp)
     - [autopairs](https://github.com/windwp/nvim-autopairs)
     - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -28,4 +28,4 @@
 ---
 Most of these plugins are fairly light, responsive, and configurable. Moreover, they offer plenty of functionality for what I do (some web-app stuff, smaller C++ projects, etc.). Should I need or want to move to larger codebases, more complicated projects, I'll look towards other robust plugins.
 
--standardrobot :robot:
+-standard:robot:

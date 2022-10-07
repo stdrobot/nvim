@@ -11,6 +11,7 @@ prettier.setup({
     },
     bin = 'prettierd',
     filetypes = {
+        "html",
         "css",
         "javascript",
         "javascriptreact",
@@ -18,6 +19,7 @@ prettier.setup({
         "typescriptreact",
         "json",
         "scss",
-        "less"
+        "less",
+        "markdown"
     },
 })
