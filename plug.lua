@@ -29,6 +29,7 @@ Plug('glepnir/lspsaga.nvim', { branch = 'main' })
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'tpope/vim-surround'
 Plug 'onsails/lspkind.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+
 Plug 'MunifTanjim/prettier.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 vim.call('plug#end')

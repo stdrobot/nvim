@@ -15,23 +15,22 @@ map<S-t> :tabnew<CR>
 imap <A-s> <Esc>:w<kEnter>i
 inoremap {<Enter> {<Enter>}<Esc>O
 map <S-?> :!node %<CR>
-map <S-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>
 map <C-S-p> :!python3 %<CR>
 map <C-]> :x<CR>
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
     if vim.fn.getcwd() == '/Users/jonahperry/.scripts/dev' then
-        vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]]
+        vim.cmd [[ map <C-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]]
     else
-        vim.cmd [[ map <S-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
+        vim.cmd [[ map <C-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
     end
 elseif vim.fn.has('win32') then
-    vim.cmd [[ map <S-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]]
+    vim.cmd [[ map <C-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]]
 end
 if vim.loop.os_uname().sysname == 'Darwin' then
-    vim.cmd [[ map <S-f> :!./%:r.exe<CR>]]
+    vim.cmd [[ map <C-f> :!./%:r.exe<CR>]]
 elseif vim.fn.has('win32') then
-    vim.cmd[[ map <S-f> :!%:r.exe<CR>]]
+    vim.cmd[[ map <C-f> :!%:r.exe<CR>]]
 end
 --[[
 map <C-j> <C-W>j

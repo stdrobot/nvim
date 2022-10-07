@@ -229,3 +229,11 @@ nvimlsp['sumneko_lua'].setup {
 }
 
 nvimlsp['gopls'].setup{}
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+nvimlsp['html'].setup{
+    capabilities = capabilities,
+    cmd = { "vscode-html-language-server", "--stdio" },
+    filetypes = { "html" }
+}
+
