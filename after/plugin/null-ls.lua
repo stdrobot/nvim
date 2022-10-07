@@ -23,7 +23,16 @@ null_ls.setup({
         }),
         ]]--
         formatting.prettier.with({
-            filetypes = {"typescript", "typescriptreact", "javascript", "javascriptreact"},
+            filetypes = {
+                "typescript",
+                "typescriptreact",
+                "javascript",
+                "javascriptreact",
+                "markdown",
+                "json",
+                "yaml",
+                "scss"
+            },
         }),
     }
 })

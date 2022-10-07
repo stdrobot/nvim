@@ -20,6 +20,8 @@
     - [Pretty-fold](https://github.com/anuvyklack/pretty-fold.nvim)
     - [surround](https://github.com/tpope/vim-surround)
     - [alpha](https://github.com/goolord/alpha-nvim)
+    - [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+    - [prettier](https://github.com/MunifTanjim/prettier.nvim)
 - I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on what I'm feeling.
 
 # Why do I use this config?
