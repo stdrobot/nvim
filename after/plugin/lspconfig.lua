@@ -234,6 +234,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvimlsp['html'].setup{
     capabilities = capabilities,
     cmd = { "vscode-html-language-server", "--stdio" },
-    filetypes = { "html" }
+    filetypes = { "html" },
+    init_options = {
+        provideFormatter = false,
+    }
 }
 

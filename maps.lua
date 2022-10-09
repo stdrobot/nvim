@@ -5,8 +5,8 @@ vnoremap > >gv
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
-map <S-Right> <C-w><C-w><CR>
-map <S-Left> <C-h><CR>
+map <S-Right> <C-w>l <CR>
+map <S-Left> <C-w>h <CR>
 map <C-l> :vsplit<CR>
 map <C-k> :split<CR>
 map<A-q> :q<kEnter>
