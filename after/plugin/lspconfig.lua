@@ -73,7 +73,6 @@ cmp.setup({
     }),
 })
 
-
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
@@ -121,7 +120,7 @@ local on_attach = function(client, bufnr)
 end
 -- END ATTACH
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(protocol.make_client_capabilities())
 
 -- BEGINS FLAGS
 local lsp_flags = {
@@ -180,13 +179,13 @@ nvimlsp['pyright'].setup{
 
 nvimlsp['tsserver'].setup{
     on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" },
     root_dir = function()
         return vim.fn.getcwd()
-    end
+    end,
+    capabilities = capabilities,
+    flag = lsp_flags,
 }
 
 nvimlsp['rust_analyzer'].setup{
@@ -226,11 +225,16 @@ nvimlsp['sumneko_lua'].setup {
       },
     },
   },
+        root_dir = function()
+        return vim.fn.getcwd()
+        end,
+
 }
 
 nvimlsp['gopls'].setup{}
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.snippetSupport = true
+
 nvimlsp['html'].setup{
     capabilities = capabilities,
     cmd = { "vscode-html-language-server", "--stdio" },
