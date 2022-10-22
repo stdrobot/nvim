@@ -16,6 +16,13 @@ Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
 
 Plug 'anuvyklack/pretty-fold.nvim'
+Plug 'anuvyklack/fold-preview.nvim'
+Plug 'anuvyklack/keymap-amend.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'kevinhwang91/nvim-ufo'
+Plug 'kevinhwang91/promise-async'
+
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'

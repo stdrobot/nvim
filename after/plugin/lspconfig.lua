@@ -1,5 +1,5 @@
 local nvimlsp = require'lspconfig'
-
+local ufo = require'ufo'
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 cmp.setup({
@@ -121,7 +121,10 @@ end
 -- END ATTACH
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(protocol.make_client_capabilities())
-
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 -- BEGINS FLAGS
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -225,11 +228,9 @@ nvimlsp['sumneko_lua'].setup {
       },
     },
   },
-        root_dir = function()
-        return vim.fn.getcwd()
-        end,
-
 }
+
+ufo.setup({})
 
 nvimlsp['gopls'].setup{}
 
