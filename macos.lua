@@ -25,15 +25,15 @@ vim.cmd([[
     set encoding=utf-8
     luafile ~/.config/nvim/maps.lua
     luafile ~/.config/nvim/plug.lua
-
     augroup set_colorscheme
         autocmd!
         autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
-    colorscheme nightfox
+    colorscheme nordfox
 
+    autocmd BufWinEnter * silent! :%foldopen!
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
@@ -45,3 +45,4 @@ vim.opt.backup = false
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.si = true
 vim.opt.ai = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

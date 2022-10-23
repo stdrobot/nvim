@@ -121,10 +121,22 @@ end
 -- END ATTACH
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(protocol.make_client_capabilities())
+--[[
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
+]]--
+ufo.setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end,
+    close_fold_kinds = {
+        description=nil,
+        default=nil
+    }
+})
+
 -- BEGINS FLAGS
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -230,7 +242,6 @@ nvimlsp['sumneko_lua'].setup {
   },
 }
 
-ufo.setup({})
 
 nvimlsp['gopls'].setup{}
 
