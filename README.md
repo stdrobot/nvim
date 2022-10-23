@@ -22,7 +22,6 @@
     -   [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
     -   [pretty-fold](https://github.com/anuvyklack/pretty-fold.nvim)
     -   [fold-preview](https://github.com/anuvyklack/fold-preview.nvim)
-    -   [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
     -   [surround](https://github.com/tpope/vim-surround)
     -   [alpha](https://github.com/goolord/alpha-nvim)
     -   [trouble](https://github.com/folke/trouble.nvim)

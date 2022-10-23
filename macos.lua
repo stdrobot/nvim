@@ -1,9 +1,11 @@
+local vim = vim
 vim.cmd([[
     " folding
     set foldlevel=99
     set foldcolumn=1
     set foldlevelstart=99
-
+    set foldmethod=expr
+    set foldexpr=nvim_treesitter#foldexpr()
     set number
     set nocompatible
     filetype off
@@ -33,12 +35,13 @@ vim.cmd([[
     augroup end
     colorscheme nordfox
 
-    autocmd BufWinEnter * silent! :%foldopen!
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
       autocmd BufWinEnter *.* silent! loadview
     augroup END
+
+    autocmd BufReadPost,FileReadPost * normal zR
 ]])
 
 vim.opt.backup = false

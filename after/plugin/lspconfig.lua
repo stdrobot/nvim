@@ -1,5 +1,4 @@
 local nvimlsp = require'lspconfig'
-local ufo = require'ufo'
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 cmp.setup({
@@ -127,15 +126,6 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 ]]--
-ufo.setup({
-    provider_selector = function(bufnr, filetype, buftype)
-        return {'treesitter', 'indent'}
-    end,
-    close_fold_kinds = {
-        description=nil,
-        default=nil
-    }
-})
 
 -- BEGINS FLAGS
 local lsp_flags = {
