@@ -2,7 +2,7 @@ local vim = vim
 vim.cmd([[
     " folding
     set foldlevel=99
-    set foldcolumn=1
+    set foldcolumn=0
     set foldlevelstart=99
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
@@ -34,13 +34,11 @@ vim.cmd([[
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
     colorscheme nordfox
-
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
       autocmd BufWinEnter *.* silent! loadview
     augroup END
-
     autocmd BufReadPost,FileReadPost * normal zR
 ]])
 

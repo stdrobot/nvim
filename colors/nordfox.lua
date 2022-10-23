@@ -3,5 +3,10 @@ if vim.g.nightfox_debug then
   require("nightfox.util.reload")()
 end
 
-require("nightfox.config").set_fox("nordfox")
-require("nightfox.main").load()
+local palettes = {
+    nordfox = {
+        comment = "#ffffff"
+    }
+}
+
+require("nightfox").setup({ palettes = palettes })
