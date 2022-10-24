@@ -22,4 +22,20 @@ vim.cmd([[
     luafile ~/.config/nvim/maps.lua
     luafile ~/.config/nvim/plug.lua
     colorscheme nightfox
+
+    augroup set_fold_specs
+        autocmd!
+        autocmd VimEnter * set foldlevel=99
+        autocmd VimEnter * set foldcolumn=0
+        autocmd VimEnter * set foldmethod=expr
+        autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
+    augroup END
+
+    augroup remember_folds
+      autocmd!
+      autocmd BufWinLeave *.* mkview
+      autocmd BufWinEnter *.* silent! loadview
+    augroup END
+
+    autocmd BufReadPost,FileReadPost * normal zR
 ]])

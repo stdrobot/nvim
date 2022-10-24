@@ -118,14 +118,13 @@ local on_attach = function(client, bufnr)
     require("nvim-autopairs").setup{}
 end
 -- END ATTACH
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities(protocol.make_client_capabilities())
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(protocol.make_client_capabilities())
---[[
-capabilities.textDocument.foldingRange = {
+local fold_capabilities = vim.lsp.protocol.make_client_capabilities()
+fold_capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
-]]--
 
 -- BEGINS FLAGS
 local lsp_flags = {
@@ -153,7 +152,7 @@ end
 nvimlsp['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
     cmd = { "clangd", "--background-index", "--clang-tidy"},
    -- single_file_support = false,
     init_options = {
@@ -167,7 +166,7 @@ nvimlsp['clangd'].setup{
 nvimlsp['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
     root_dir = function()
         return vim.fn.getcwd()
     end,
@@ -189,20 +188,20 @@ nvimlsp['tsserver'].setup{
     root_dir = function()
         return vim.fn.getcwd()
     end,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
     flag = lsp_flags,
 }
 
 nvimlsp['rust_analyzer'].setup{
-    on_attach = on_attach,
+   on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
 }
 
 nvimlsp['jdtls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
     root_dir = function()
         return vim.fn.getcwd()
     end
@@ -233,12 +232,12 @@ nvimlsp['sumneko_lua'].setup {
 }
 
 
-nvimlsp['gopls'].setup{}
+nvimlsp['gopls'].setup({})
 
-capabilities.textDocument.completion.snippetSupport = true
+cmp_capabilities.textDocument.completion.snippetSupport = true
 
 nvimlsp['html'].setup{
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
     cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html" },
     init_options = {
@@ -249,5 +248,5 @@ nvimlsp['html'].setup{
 nvimlsp['phpactor'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities,
+    capabilities = cmp_capabilities,
 }

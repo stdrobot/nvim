@@ -1,11 +1,6 @@
 local vim = vim
+local group = vim.api.nvim_create_augroup
 vim.cmd([[
-    " folding
-    set foldlevel=99
-    set foldcolumn=0
-    set foldlevelstart=99
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
     set number
     set nocompatible
     filetype off
@@ -27,6 +22,7 @@ vim.cmd([[
     set encoding=utf-8
     luafile ~/.config/nvim/maps.lua
     luafile ~/.config/nvim/plug.lua
+
     augroup set_colorscheme
         autocmd!
         autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
@@ -34,11 +30,21 @@ vim.cmd([[
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
     colorscheme nordfox
+    
+    augroup set_fold_specs
+        autocmd!
+        autocmd VimEnter * set foldlevel=99
+        autocmd VimEnter * set foldcolumn=0
+        autocmd VimEnter * set foldmethod=expr
+        autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
+    augroup END
+
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
       autocmd BufWinEnter *.* silent! loadview
     augroup END
+
     autocmd BufReadPost,FileReadPost * normal zR
 ]])
 
