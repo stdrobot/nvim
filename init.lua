@@ -1,8 +1,5 @@
 if vim.loop.os_uname().sysname == 'Darwin' then
-	vim.cmd([[ luafile ~/.config/nvim/osx.lua]])
+    require("standardrobot.osx")
 elseif vim.fn.has('win32') then
-    vim.cmd([[ luafile ~/.config/nvim/windows.lua]])
+    require("standardrobot.windows")
 end
-
-vim.cmd([[
-]])

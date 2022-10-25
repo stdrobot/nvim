@@ -1,5 +1,8 @@
 local vim = vim
 local group = vim.api.nvim_create_augroup
+
+require("standardrobot.plug")
+require("standardrobot.maps")
 vim.cmd([[
     set number
     set nocompatible
@@ -7,6 +10,7 @@ vim.cmd([[
     set clipboard=unnamed "OSX
     set cb=unnamed
     set termguicolors
+    syntax on
     set ruler  
     set mouse=a
     set inccommand=nosplit
@@ -20,8 +24,6 @@ vim.cmd([[
     set fileencoding=utf-8
     let $LANG='en_US.UTF-8'
     set encoding=utf-8
-    luafile ~/.config/nvim/maps.lua
-    luafile ~/.config/nvim/plug.lua
 
     augroup set_colorscheme
         autocmd!
@@ -29,6 +31,7 @@ vim.cmd([[
         autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
+
     colorscheme nordfox
     
     augroup set_fold_specs
