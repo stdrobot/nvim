@@ -32,9 +32,3 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 elseif vim.fn.has('win32') then
     vim.cmd[[ map <C-f> :!%:r.exe<CR>]]
 end
---[[
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-]]--

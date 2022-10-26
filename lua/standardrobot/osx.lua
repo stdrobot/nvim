@@ -15,7 +15,6 @@ vim.opt.softtabstop=0
 vim.opt.expandtab=true
 vim.opt.shiftwidth=4
 vim.opt.smarttab=true
-vim.opt.wrap = false -- No Wrap lines
 vim.opt.title=true
 vim.wo.number=true
 vim.g.filetype=0
