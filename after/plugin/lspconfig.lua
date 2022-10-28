@@ -65,10 +65,10 @@ cmp.setup({
     -- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
     -- implement into the config immediately, haha
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
+      { name = 'nvim_lsp'},
       { name = 'luasnip' }, -- For luasnip users.
     }, {
-        { name = 'buffer' },
+        -- { name = 'buffer' },
     }),
 })
 
