@@ -11,10 +11,10 @@ vim.opt.inccommand="nosplit"
 vim.opt.hidden=true
 vim.opt.ruler=true
 vim.opt.tabstop=4
-vim.opt.softtabstop=0
 vim.opt.expandtab=true
+vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
+vim.opt.completeopt = vim.opt.completeopt - "preview"
 vim.opt.shiftwidth=4
-vim.opt.smarttab=true
 vim.opt.title=true
 vim.wo.number=true
 vim.g.filetype=0
@@ -26,10 +26,7 @@ vim.opt.ai = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.cmd([[
-    set ve+=onemore
-    set completeopt-=preview
-
-    hi LineNr ctermfg=8
+    hi LineNr ctermfg=Yellow
     let g:SimpylFold_docstring_preview = 1
     let g:python3_host_prog = '/usr/bin/python'
     set fileencoding=utf-8

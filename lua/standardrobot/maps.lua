@@ -15,7 +15,7 @@ map<S-t> :tabnew<CR>
 imap <A-s> <Esc>:w<kEnter>i
 inoremap {<Enter> {<Enter>}<Esc>O
 map <S-?> :!node %<CR>
-map <C-S-p> :!python3 %<CR>
+map <C-p> :!python3 %<CR>
 map <C-]> :x<CR>
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
