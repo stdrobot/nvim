@@ -15,6 +15,6 @@ prettier.setup({
         --"javascript.jsx",
         "scss",
         "less",
-        "markdown"
+     --   "markdown"
     },
 })
