@@ -23,6 +23,7 @@ vim.opt.backup = false
 vim.opt.backspace = {'start','eol','indent'}
 vim.opt.si = true
 vim.opt.ai = true
+vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.cmd([[

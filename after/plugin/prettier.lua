@@ -1,5 +1,7 @@
 local status, prettier = pcall(require, "prettier")
-if (not status) then return end
+if not status then
+    return
+end
 
 prettier.setup({
     bin = "prettier",
@@ -15,6 +17,6 @@ prettier.setup({
         --"javascript.jsx",
         "scss",
         "less",
-     --   "markdown"
+        --   "markdown"
     },
 })

@@ -17,6 +17,7 @@ inoremap {<Enter> {<Enter>}<Esc>O
 map <S-?> :!node %<CR>
 map <C-p> :!python3 %<CR>
 map <C-]> :x<CR>
+nnoremap <C-0> <Cmd>TroubleToggle<cr>
 ]])
 if vim.loop.os_uname().sysname == 'Darwin' then
     if vim.fn.getcwd() == '/Users/jonahperry/.scripts/dev' then
