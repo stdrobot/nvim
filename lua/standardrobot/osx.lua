@@ -1,6 +1,6 @@
 local vim = vim
 local group = vim.api.nvim_create_augroup
-
+local highlight = vim.api.nvim_set_hl
 vim.opt.encoding="utf-8"
 vim.opt.clipboard="unnamed"
 vim.opt.cb="unnamed"
@@ -25,14 +25,21 @@ vim.opt.si = true
 vim.opt.ai = true
 vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+highlight(0, 'DiagnosticsVirtualTextError', {bg='#ff0000'})
 
 vim.cmd([[
-    hi LineNr ctermfg=Yellow
+    set cursorline
+    set cursorlineopt=number
+    highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
+    highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
+    let &t_ut=''
     let g:SimpylFold_docstring_preview = 1
     let g:python3_host_prog = '/usr/bin/python'
     set fileencoding=utf-8
     let $LANG='en_US.UTF-8'
-                
+    hi LspDiagnosticsVirtualTextWarning guifg=orange gui=bold,italic,underline
+    hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
+    hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline 
     augroup set_fold_specs
         autocmd!
         autocmd VimEnter * set foldlevel=99
@@ -57,4 +64,3 @@ vim.cmd([[
 
     colorscheme nordfox
 ]])
-

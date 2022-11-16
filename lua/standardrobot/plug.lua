@@ -35,5 +35,6 @@ Plug 'tpope/vim-surround'
 Plug 'onsails/lspkind.nvim'
 
 Plug 'MunifTanjim/prettier.nvim'
+-- Plug('prettier/vim-prettier', {['do'] = vim.fn['npm install --frozen-lockfile --production'] })
 Plug 'jose-elias-alvarez/null-ls.nvim'
 vim.call('plug#end')

@@ -13,10 +13,9 @@ prettier.setup({
         "typescript",
         "typescriptreact",
         "json",
-        -- "typescript.tsx",
-        --"javascript.jsx",
+        "typescript.tsx",
+        "javascript.jsx",
         "scss",
         "less",
-        --   "markdown"
     },
 })
