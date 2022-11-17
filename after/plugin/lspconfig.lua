@@ -64,7 +64,7 @@ cmp.setup({
         ]]
 		--
 		format = lspkind.cmp_format({
-			mode = "symbols",
+			mode = "symbol_text",
 			maxwidth = 50,
 			maxheight = 30,
 			icons = true,
