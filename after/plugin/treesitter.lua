@@ -20,7 +20,6 @@ require("nvim-treesitter.configs").setup({
     ignore_install = { "javascript" },
 
     highlight = {
-        -- `false` will disable the whole extension
         enable = true,
 
         -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
@@ -37,5 +36,6 @@ require("nvim-treesitter.configs").setup({
     },
     autotag = {
         enable = true,
+        filetypes = {"html", "javascriptreact", "ts", "xml"}
     }
 })

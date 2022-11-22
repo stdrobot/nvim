@@ -80,13 +80,12 @@ cmp.setup({
 	}),
 
 	-- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
-	-- implement into the config immediately, haha
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" }, -- For luasnip users.
-	}, {
-		-- { name = 'buffer' },
-	}),
+		{ name = "nvim_lsp"},
+		{ name = "luasnip" },
+        { name = "treesitter" },
+        { name = "nvim_lua" }
+    }),
 })
 
 -- Set configuration for specific filetype.
@@ -130,8 +129,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
-
-	--  local opts = { noremap=true, silent=true }
+	--  local opts = { noremap=true, silent=true } 
 	require("nvim-autopairs").setup({})
 end
 
@@ -265,7 +263,10 @@ nvimlsp["bashls"].setup({
 	on_attach = on_attach,
 	capabilities = cmp_capabilities,
 	cmd = { "bash-language-server", "start" },
-	cmd_env = { GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.zshrc)" },
+	cmd_env = { GLOB_PATTERN = "*@(.sh|.zshrc)" },
+    root_dir = function()
+        return vim.fn.getcwd()
+    end,
 	single_file_support = true,
 })
 
