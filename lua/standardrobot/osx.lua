@@ -1,31 +1,6 @@
 local vim = vim
 local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
-vim.opt.encoding="utf-8"
-vim.opt.clipboard="unnamed"
-vim.opt.cb="unnamed"
-vim.opt.syntax="on"
-vim.opt.mouse="a"
-vim.opt.termguicolors=true
-vim.opt.inccommand="nosplit"
-vim.opt.hidden=true
-vim.opt.ruler=true
-vim.opt.tabstop=4
-vim.opt.expandtab=true
-vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
-vim.opt.completeopt = vim.opt.completeopt - "preview"
-vim.opt.shiftwidth=4
-vim.opt.title=true
-vim.wo.number=true
-vim.g.filetype=0
-vim.g.nocompatible=1
-vim.opt.backup = false
-vim.opt.backspace = {'start','eol','indent'}
-vim.opt.si = true
-vim.opt.ai = true
-vim.opt.pumheight = 30
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-highlight(0, 'DiagnosticsVirtualTextError', {bg='#ff0000'})
 
 vim.cmd([[
     set cursorline
@@ -61,6 +36,31 @@ vim.cmd([[
         autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
-
-    colorscheme nordfox
 ]])
+
+vim.opt.encoding="utf-8"
+vim.opt.clipboard="unnamed"
+vim.opt.cb="unnamed"
+vim.opt.syntax="on"
+vim.opt.mouse="a"
+vim.opt.termguicolors=true
+vim.opt.inccommand="nosplit"
+vim.opt.hidden=true
+vim.opt.ruler=true
+vim.opt.tabstop=4
+vim.opt.expandtab=true
+vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
+vim.opt.completeopt = vim.opt.completeopt - "preview"
+vim.opt.shiftwidth=4
+vim.opt.title=true
+vim.wo.number=true
+vim.g.filetype=0
+vim.g.nocompatible=1
+vim.opt.backup = false
+vim.opt.backspace = {'start','eol','indent'}
+vim.opt.si = true
+vim.opt.ai = true
+vim.opt.pumheight = 30
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+highlight(0, 'DiagnosticsVirtualTextError', {bg='#ff0000'})
+vim.cmd.colorscheme "nordfox"

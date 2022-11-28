@@ -6,6 +6,7 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'goolord/alpha-nvim'
 Plug 'arcticicestudio/nord'
+Plug 'sam4llis/nvim-tundra'
     -- LSP + bells n whistles (autocomplete, autopairs, etc.)
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
