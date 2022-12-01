@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
         "javascript",
         "typescript",
         "python",
+        "typescript",
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -36,6 +37,6 @@ require("nvim-treesitter.configs").setup({
     },
     autotag = {
         enable = true,
-        filetypes = {"html", "javascriptreact", "ts", "xml"}
+        filetypes = {"html", "javascriptreact", "ts", "javascript", "xml"}
     }
 })
