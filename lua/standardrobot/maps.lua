@@ -9,6 +9,26 @@ local map = function(mode, lhs, rhs, opts)
 end
 --[[
 vim.cmd([[
+    vnoremap < <gv
+    vnoremap > >gv
+    nmap <C-n> :NERDTreeToggle<CR>
+    vmap ++ <plug>NERDCommenterToggle
+    nmap ++ <plug>NERDCommenterToggle
+    map <S-Right> <C-w>l <CR>
+    map <S-Left> <C-w>h <CR>
+    map <C-l> :vsplit<CR>
+    map <C-k> :split<CR>
+    map<A-q> :q<kEnter>
+    map<A-s> :w<kEnter>
+    map<S-t> :tabnew<CR>
+    imap <A-s> <Esc>:w<kEnter>i
+    inoremap {<Enter> {<Enter>}<Esc>O
+    map <S-?> :!node %<CR>
+    map <C-p> :!python3 %<CR>
+    map <C-]> :x<CR>
+    nnoremap <C-0> <Cmd>TroubleToggle<cr>
+    nnoremap <C-x> <cmd>TroubleToggle workspace_diagnostics<cr>
+    nnoremap <C-z> <cmd>TroubleToggle document_diagnostics<cr>
 ]
 
 ]]--
@@ -31,12 +51,12 @@ map("n", "<S-t>", "::tabnew<CR>")
 map("n", "<S-?>", ":!node %<CR>")
 map("n", "<A-q>", ":q<kEnter>")
 map("n", "<C-n>", ":NERDTreeToggle<CR")
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+map("v", "<", "<gv", { noremap = true })
+map("v", ">", ">gv", { noremap = true })
 map("n", "<C-l>", ":vsplit<CR>")
 map("n", "<C-k>", ":split<CR>")
 map("n", "<C-p>", ":!python3 %<CR>")
 map("n", "<S-Right>", "<C-w>l <CR>")
 map("n", "<S-Left>", "<C-w>h <CR>")
-map("n", "<C-0>", "<cmd>TroubleToggle<CR>")
+map("n", "<C-0>", "<cmd>TroubleToggle<CR>", { noremap = true })
 map("v", "++", "<plug>NERDCommenterToggle")
