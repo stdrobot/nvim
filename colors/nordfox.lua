@@ -10,3 +10,4 @@ local palettes = {
 }
 
 require("nightfox").setup({ palettes = palettes })
+vim.cmd.colorscheme "nordfox"

@@ -63,4 +63,13 @@ vim.opt.ai = true
 vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 highlight(0, 'DiagnosticsVirtualTextError', {bg='#ff0000'})
+require("nightfox").setup({
+  palettes = {
+    nordfox = {
+      comment = "#828fa1",
+
+    }
+    -- Custom duskfox with black background
+    },
+})
 vim.cmd.colorscheme "nordfox"
