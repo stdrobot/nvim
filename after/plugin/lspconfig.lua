@@ -78,16 +78,19 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
+	["<tab>"] = cmp.config.disable,
 
 	-- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp"},
+		{ name = "nvim_lua" },
+		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-        { name = "treesitter" },
-        { name = "nvim_lua" }
-    }),
+		{ name = "treesitter" },
+	}, {
+		{ name = "path" },
+		{ name = "buffer" },
+	}),
 })
-
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
@@ -129,7 +132,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
-	--  local opts = { noremap=true, silent=true } 
+	--  local opts = { noremap=true, silent=true }
 	require("nvim-autopairs").setup({})
 end
 
@@ -151,7 +154,7 @@ local lsp_flags = {
 local set_fallback_flags = function()
 	local fallback_flags = {}
 	if vim.loop.os_uname().sysname == "Darwin" then
-		fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall"}
+		fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
 	elseif vim.fn.has("win32") then
 		fallback_flags = { "--target=x86_x64-w64-windows-gnu", "-std=c++20" }
 	end
@@ -164,7 +167,7 @@ nvimlsp["clangd"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = cmp_capabilities,
-	cmd = { "clangd", "--background-index", "--clang-tidy"},
+	cmd = { "clangd", "--background-index", "--clang-tidy" },
 	-- single_file_support = false,
 	init_options = {
 		fallbackFlags = set_fallback_flags(),
@@ -232,7 +235,7 @@ nvimlsp["sumneko_lua"].setup({
 			workspace = {
 				-- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
+				checkThirdParty = false,
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
@@ -264,9 +267,9 @@ nvimlsp["bashls"].setup({
 	capabilities = cmp_capabilities,
 	cmd = { "bash-language-server", "start" },
 	cmd_env = { GLOB_PATTERN = "*@(.sh|.zshrc)" },
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
+	root_dir = function()
+		return vim.fn.getcwd()
+	end,
 	single_file_support = true,
 })
 
@@ -276,8 +279,8 @@ nvimlsp["cmake"].setup({
 	cmd = { "cmake-language-server" },
 	filetypes = { "cmake" },
 	single_file_support = true,
-    root_dir = util.root_pattern('CMakePresets.json', 'CTestConfig.cmake', '.git', 'build', 'cmake'),
-    init_options = {
-        buildDirectory = "build"
-    }
+	root_dir = util.root_pattern("CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake"),
+	init_options = {
+		buildDirectory = "build",
+	},
 })
