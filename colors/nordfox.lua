@@ -9,5 +9,13 @@ local palettes = {
     }
 }
 
-require("nightfox").setup({ palettes = palettes })
+local specs = {
+    all = {
+        syntax = {
+            variable = "red.bright",
+        }
+    }
+}
+
+require("nightfox").setup({ palettes = palettes }, {specs = specs})
 vim.cmd.colorscheme "nordfox"
