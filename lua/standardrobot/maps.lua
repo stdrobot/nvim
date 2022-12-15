@@ -31,20 +31,21 @@ vim.cmd([[
     nnoremap <C-z> <cmd>TroubleToggle document_diagnostics<cr>
 ]
 
-]]--
-if vim.loop.os_uname().sysname == 'Darwin' then
-    if vim.fn.getcwd() == '/Users/jonahperry/.scripts/dev' then
-        vim.cmd [[ map <C-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]]
+]]
+--
+if vim.loop.os_uname().sysname == "Darwin" then
+    if vim.fn.getcwd() == "/Users/jonahperry/.scripts/dev" then
+        vim.cmd([[ map <C-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]])
     else
-        vim.cmd [[ map <C-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]]
+        vim.cmd([[ map <C-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]])
     end
-elseif vim.fn.has('win32') then
-    vim.cmd [[ map <C-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]]
+elseif vim.fn.has("win32") then
+    vim.cmd([[ map <C-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]])
 end
-if vim.loop.os_uname().sysname == 'Darwin' then
-    vim.cmd [[ map <C-f> :!./%:r.exe<CR>]]
-elseif vim.fn.has('win32') then
-    vim.cmd[[ map <C-f> :!%:r.exe<CR>]]
+if vim.loop.os_uname().sysname == "Darwin" then
+    vim.cmd([[ map <C-f> :!./%:r.exe<CR>]])
+elseif vim.fn.has("win32") then
+    vim.cmd([[ map <C-f> :!%:r.exe<CR>]])
 end
 
 map("n", "<S-t>", "::tabnew<CR>")
