@@ -1,8 +1,8 @@
 local status, fold_prev = pcall(require, "fold-preview")
 if not status then
-            return
+    return
 end
 
 fold_prev.setup({
-            border = "single",
+    border = "single",
 })
