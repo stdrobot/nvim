@@ -1,7 +1,6 @@
 local vim = vim
 local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
-
 vim.cmd([[
     set cursorline
     set cursorlineopt=number
@@ -22,14 +21,12 @@ vim.cmd([[
         autocmd VimEnter * set foldmethod=expr
         autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
     augroup END
-
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
       autocmd BufWinEnter *.* silent! loadview
     augroup END
     autocmd BufReadPost,FileReadPost * normal zR
-
     augroup set_colorscheme
         autocmd!
         autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
@@ -37,7 +34,6 @@ vim.cmd([[
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
 ]])
-
 vim.opt.encoding="utf-8"
 vim.opt.clipboard="unnamed"
 vim.opt.cb="unnamed"
@@ -63,13 +59,20 @@ vim.opt.ai = true
 vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 highlight(0, 'DiagnosticsVirtualTextError', {bg='#ff0000'})
-require("nightfox").setup({
-  palettes = {
+local palettes = {
     nordfox = {
       comment = "#828fa1",
 
     }
     -- Custom duskfox with black background
-    },
-})
+}
+local specs = {
+    nordfox = {
+        syntax = {
+            variable = "",
+        }
+    }
+}
+require("nightfox").setup({palettes= palettes, specs = specs })
+
 vim.cmd.colorscheme "nordfox"
