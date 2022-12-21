@@ -1,42 +1,47 @@
-local Plug = vim.fn['plug#']
+return require("packer").startup({
+    function(use)
+        use("EdenEast/nightfox.nvim")
+        use("morhetz/gruvbox")
+        use("goolord/alpha-nvim")
+        use("arcticicestudio/nord")
+        use("sam4llis/nvim-tundra")
+        use("justinhj/battery.nvim")
+        -- LSP + bells n whistles  autocomplete, autopairs, etc.
+        use("neovim/nvim-lspconfig")
+        use("hrsh7th/cmp-nvim-lsp")
+        use("hrsh7th/cmp-buffer")
+        use("hrsh7th/cmp-path")
+        use("hrsh7th/nvim-cmp")
+        use("windwp/nvim-autopairs")
+        use("windwp/nvim-ts-autotag")
 
-vim.call('plug#begin', '~/.local/share/nvim/plugged')
--- Colorschemes / Graphics
-Plug 'EdenEast/nightfox.nvim'
-Plug 'morhetz/gruvbox'
-Plug 'goolord/alpha-nvim'
-Plug 'arcticicestudio/nord'
-Plug 'sam4llis/nvim-tundra'
-Plug 'justinhj/battery.nvim'
-    -- LSP + bells n whistles (autocomplete, autopairs, etc.)
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'windwp/nvim-autopairs'
-Plug 'windwp/nvim-ts-autotag'
+        use("anuvyklack/pretty-fold.nvim")
+        use("anuvyklack/fold-preview.nvim")
+        use("anuvyklack/keymap-amend.nvim")
+        use("folke/trouble.nvim")
 
-Plug 'anuvyklack/pretty-fold.nvim'
-Plug 'anuvyklack/fold-preview.nvim'
-Plug 'anuvyklack/keymap-amend.nvim'
-Plug 'folke/trouble.nvim'
+        use({
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
+        })
+        use("nvim-treesitter/playground")
+        use("nvim-lua/popup.nvim")
+        use("nvim-lua/plenary.nvim")
+        use("nvim-telescope/telescope.nvim")
+        use("preservim/nerdtree")
+        use("nvim-lualine/lualine.nvim")
+        use("kyazdani42/nvim-web-devicons")
+        use("L3MON4D3/LuaSnip")
+        use("saadparwaiz1/cmp_luasnip")
+        use({ "glepnir/lspsaga.nvim", branch = "main" })
+        use("mfussenegger/nvim-jdtls")
+        use("tpope/vim-surround")
+        use("onsails/lspkind.nvim")
 
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'preservim/nerdtree'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug('glepnir/lspsaga.nvim', { branch = 'main' })
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'tpope/vim-surround'
-Plug 'onsails/lspkind.nvim'
-
-Plug 'MunifTanjim/prettier.nvim'
--- Plug('prettier/vim-prettier', {['do'] = vim.fn['npm install --frozen-lockfile --production'] })
-Plug 'jose-elias-alvarez/null-ls.nvim'
-vim.call('plug#end')
+        use("MunifTanjim/prettier.nvim")
+        use("jose-elias-alvarez/null-ls.nvim")
+    end,
+    config = {
+        compile_path = "./after/plugin/packer_compiled.lua",
+    },
+})

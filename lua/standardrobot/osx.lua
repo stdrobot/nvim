@@ -1,6 +1,7 @@
 local vim = vim
 local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
+local nightfox = require("nightfox")
 vim.cmd([[
     set cursorline
     set cursorlineopt=number
@@ -35,8 +36,8 @@ vim.cmd([[
     augroup end
 ]])
 
-require("maps")
 vim.opt.encoding = "utf-8"
+vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed"
 vim.opt.cb = "unnamed"
 vim.opt.syntax = "on"
@@ -71,9 +72,32 @@ local palettes = {
 local specs = {
     nordfox = {
         syntax = {
-            variable = "#ffffff",
+            variable = "#ededd5",
+            builtin0 = "#67b2a0",
+            builtin1 = "#93ccdc",
+            builtin2 = "#d89079",
+            builtin3 = "#d06f79",
+            conditional = "#c895bf",
+            --[[    
+            builtin0 = "#bf616a",
+            builtin1 = "#93ccdc",
+            builtin2 = "#d89079",
+            builtin3 = "#d06f79",
+            const = "#d89079",
+            dep = "#7e8188",
+            field = "#81a1c1",
+            func = "#8cafd2",
+            ident = "#88c0d0",
+            keyword = "#b48ead",
+            operator = "#abb1bb",
+            preproc = "#d092ce",
+            statement = "#b48ead",
+            string = "#a3be8c",
+            type = "#ebcb8b",
+            --]]
         },
     },
 }
-require("nightfox").setup({ palettes = palettes, specs = specs })
+
+nightfox.setup({ palettes = palettes, specs = specs })
 vim.cmd.colorscheme("nordfox")

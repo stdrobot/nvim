@@ -1,21 +1,21 @@
--- Useful when debugging
-if vim.g.nightfox_debug then
-  require("nightfox.util.reload")()
+local status, nightfox = pcall(require, "nightfox")
+if not status then
+    return
 end
 
 local palettes = {
     nordfox = {
-        comment = "#ffffff"
-    }
+        comment = "#828fa1",
+    },
+    -- Custom duskfox with black background
 }
-
 local specs = {
-    all = {
+    nordfox = {
         syntax = {
-            variable = "red.bright",
-        }
-    }
+            variable = "",
+        },
+    },
 }
+nightfox.setup({ palettes = palettes, specs = specs })
 
-require("nightfox").setup({ palettes = palettes }, {specs = specs})
-vim.cmd.colorscheme "nordfox"
+vim.cmd.colorscheme("nordfox")

@@ -51,7 +51,7 @@ end
 map("n", "<S-t>", "::tabnew<CR>")
 map("n", "<S-?>", ":!node %<CR>")
 map("n", "<A-q>", ":q<kEnter>")
-map("n", "<C-n>", ":NERDTreeToggle<CR")
+map("n", "<C-n>", ":NERDTreeToggle<CR>")
 map("v", "<", "<gv", { noremap = true })
 map("v", ">", ">gv", { noremap = true })
 map("n", "<C-l>", ":vsplit<CR>")

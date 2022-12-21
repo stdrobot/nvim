@@ -75,7 +75,6 @@ cmp.setup({
         { name = "luasnip" },
         { name = "treesitter" },
     }),
-    -- event = cmp.event:on("confirm_done", cmp_npairs.on_confirm_done()),
 })
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
@@ -86,4 +85,4 @@ cmp.setup.filetype("gitcommit", {
     }),
 })
 
-cmp.event:on("confirm_done", cmp_npairs.on_confirm_done())
+--cmp.event:on("confirm_done", cmp_npairs.on_confirm_done())
