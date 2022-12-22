@@ -1,4 +1,9 @@
-return require("packer").startup({
+local status, packer = pcall(require, "packer")
+if not status then
+    return
+end
+
+packer.startup({
     function(use)
         use("EdenEast/nightfox.nvim")
         use("morhetz/gruvbox")
@@ -37,11 +42,12 @@ return require("packer").startup({
         use("mfussenegger/nvim-jdtls")
         use("tpope/vim-surround")
         use("onsails/lspkind.nvim")
+        use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
         use("MunifTanjim/prettier.nvim")
         use("jose-elias-alvarez/null-ls.nvim")
     end,
     config = {
-        compile_path = "./after/plugin/packer_compiled.lua",
+        compile_path = "packer_compiled.lua",
     },
 })

@@ -2,6 +2,8 @@ local vim = vim
 local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
 local nightfox = require("nightfox")
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
     set cursorline
     set cursorlineopt=number
@@ -36,6 +38,8 @@ vim.cmd([[
     augroup end
 ]])
 
+vim.g.mapleader = " "
+vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
 vim.opt.encoding = "utf-8"
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed"
