@@ -41,11 +41,9 @@ treesitter_conf.setup({
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = true,
     },
-    --[[
     autotag = {
         enable = true,
     },
-    ]]
     --
 })
 
