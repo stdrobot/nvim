@@ -2,7 +2,7 @@ local status, nvimlsp = pcall(require, "lspconfig")
 if not status then
     return
 end
-
+require("luasnip.loaders.from_vscode").lazy_load()
 local name = vim.loop.os_uname().sysname
 local util = nvimlsp.util
 

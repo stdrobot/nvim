@@ -65,13 +65,13 @@ cmp.setup({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<tab>"] = cmp.config.disable,
     }),
-    ["<tab>"] = cmp.config.disable,
 
     -- TODO: POTENTIAL FILTER TO DISABLE COMPLETION ITEMS BY KIND
     sources = cmp.config.sources({
-        { name = "nvim_lua" },
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", keyword_length = 2 },
+        { name = "nvim_lua", keyword_length = 2 },
         { name = "luasnip" },
         { name = "treesitter" },
     }),
