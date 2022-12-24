@@ -4,7 +4,7 @@ if not status then
     return
 end
 
-treesitter_conf.setup({
+require("nvim-treesitter.configs").setup({
     -- A list of parser names, or "all"
     ensure_installed = {
         "c",
@@ -13,6 +13,7 @@ treesitter_conf.setup({
         "cpp",
         "fish",
         "html",
+        "vim",
         "css",
         "javascript",
         "typescript",
@@ -45,12 +46,4 @@ treesitter_conf.setup({
         enable = true,
     },
     --
-})
-
-npairs.setup({
-    disable_filetype = { "TelescopePrompt", "vim" },
-    check_ts = true,
-    treesitter_conf = {
-        python = { "string", "comment" },
-    },
 })

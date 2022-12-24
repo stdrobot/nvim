@@ -2,6 +2,8 @@ local status, nvimlsp = pcall(require, "lspconfig")
 if not status then
     return
 end
+
+local name = vim.loop.os_uname().sysname
 local util = nvimlsp.util
 
 -- Setup nvim-cmp.
@@ -58,9 +60,9 @@ local lsp_flags = {
 
 local set_fallback_flags = function()
     local fallback_flags = {}
-    if vim.loop.os_uname().sysname == "Darwin" then
+    if name == 1 then
         fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
-    elseif vim.fn.has("win32") then
+    elseif name == 2 then
         fallback_flags = { "--target=x86_x64-w64-windows-gnu", "-std=c++20" }
     end
     return fallback_flags
