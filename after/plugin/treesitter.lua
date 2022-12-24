@@ -4,7 +4,7 @@ if not status then
     return
 end
 
-require("nvim-treesitter.configs").setup({
+treesitter_conf.setup({
     -- A list of parser names, or "all"
     ensure_installed = {
         "c",
@@ -20,13 +20,14 @@ require("nvim-treesitter.configs").setup({
         "tsx",
         "python",
     },
-    indent = { enable = true },
+    indent = { enable = true, disable = { "python" } },
 
     sync_install = false,
-    autopairs = { enable = true },
-
+    -- indent = { enable = true, disable_filetype },
+    matchup = { enable = true },
+    playground = { enable = true },
     highlight = {
-        enable = true,
+        enable = vim.g.vscode ~= 1,
         additional_vim_regex_highlighting = true,
     },
     autotag = {

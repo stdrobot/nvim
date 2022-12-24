@@ -47,7 +47,7 @@ if vim.loop.os_uname().sysname == "Darwin" then
 elseif vim.fn.has("win32") then
     vim.cmd([[ map <C-f> :!%:r.exe<CR>]])
 end
-
+map("i", "<C-Return>", "<CR><CR><C-o>k<Tab>")
 map("n", "<S-t>", "::tabnew<CR>")
 map("n", "<S-?>", ":!node %<CR>")
 map("n", "<A-q>", ":q<kEnter>")

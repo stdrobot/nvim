@@ -4,7 +4,7 @@ if not status then
 end
 
 local lspkind = require("lspkind")
--- local cmp_npairs = require("nvim-autopairs.completion.cmp")
+local cmp_npairs = require("nvim-autopairs.completion.cmp")
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -98,4 +98,4 @@ cmp.setup.filetype("gitcommit", {
     }),
 })
 
---cmp.event:on("confirm_done", cmp_npairs.on_confirm_done())
+cmp.event:on("confirm_done", cmp_npairs.on_confirm_done())
