@@ -2,7 +2,6 @@ local status, nvimlsp = pcall(require, "lspconfig")
 if not status then
     return
 end
-require("luasnip.loaders.from_vscode").lazy_load()
 local name = vim.loop.os_uname().sysname
 local util = nvimlsp.util
 
@@ -60,9 +59,9 @@ local lsp_flags = {
 
 local set_fallback_flags = function()
     local fallback_flags = {}
-    if name == 1 then
+    if name == "Darwin" then
         fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
-    elseif name == 2 then
+    elseif name == "Windows" then
         fallback_flags = { "--target=x86_x64-w64-windows-gnu", "-std=c++20" }
     end
     return fallback_flags
@@ -102,6 +101,15 @@ nvimlsp["pyright"].setup({
     },
 })
 
+local vscode = "vscode-html-language-server"
+local ts = "typescript-language-server"
+if name == "Darwin" then
+    ts = ts
+    vscode = vscode
+elseif name == "Windows" then
+    ts = ts .. ".cmd"
+    vscode = vscode .. ".cmd"
+end
 nvimlsp["tsserver"].setup({
     on_attach = on_attach,
     filetypes = {
@@ -112,7 +120,7 @@ nvimlsp["tsserver"].setup({
         "typescriptreact",
         "typescript.tsx",
     },
-    cmd = { "typescript-language-server", "--stdio" },
+    cmd = { ts, "--stdio" },
     root_dir = function()
         return vim.fn.getcwd()
     end,
@@ -171,7 +179,7 @@ cmp_capabilities.textDocument.completion.snippetSupport = true
 
 nvimlsp["html"].setup({
     capabilities = cmp_capabilities,
-    cmd = { "vscode-html-language-server", "--stdio" },
+    cmd = { vscode, "--stdio" },
     filetypes = { "html" },
     init_options = {
         provideFormatter = false,
