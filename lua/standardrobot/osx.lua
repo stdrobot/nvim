@@ -7,6 +7,7 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
     set cursorline
     set cursorlineopt=number
+    filetype plugin indent on
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
     let &t_ut=''
@@ -78,10 +79,12 @@ local specs = {
         syntax = {
             variable = "#ededd5",
             builtin0 = "#67b2a0",
-            builtin1 = "#93ccdc",
+            -- builtin1 = "#93ccdc",
+            builtin1 = "#a4cfdb",
             builtin2 = "#d89079",
             builtin3 = "#d06f79",
             conditional = "#c895bf",
+            type = "#ebcb8b",
             --[[    
             builtin0 = "#bf616a",
             builtin1 = "#93ccdc",
@@ -90,7 +93,6 @@ local specs = {
             const = "#d89079",
             dep = "#7e8188",
             field = "#81a1c1",
-            func = "#8cafd2",
             ident = "#88c0d0",
             keyword = "#b48ead",
             operator = "#abb1bb",
