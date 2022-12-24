@@ -1,8 +1,9 @@
 require("standardrobot.maps")
 require("standardrobot.plug")
+local name = vim.loop.os_uname().sysname
 
-if vim.loop.os_uname().sysname == "Darwin" then
+if name == "Darwin" then
     require("standardrobot.osx")
-elseif vim.fn.has("win32") then
+elseif name == "Windows" then
     require("standardrobot.windows")
 end
