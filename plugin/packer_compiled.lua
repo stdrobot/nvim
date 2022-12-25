@@ -243,6 +243,11 @@ _G.packer_plugins = {
     path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["vim-python-pep8-indent"] = {
+    loaded = true,
+    path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/vim-python-pep8-indent",
+    url = "https://github.com/Vimjas/vim-python-pep8-indent"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/vim-surround",

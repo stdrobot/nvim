@@ -17,3 +17,4 @@ prettier.setup({
         "less",
     },
 })
+vim.cmd([[let g:prettier#config#tab_width = 'auto']])

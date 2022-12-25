@@ -1,6 +1,14 @@
 local vim = vim
 local fn = vim.fn
 local install_path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+local name = vim.loop.os_uname().sysname
+local path = ""
+
+if name == "Darwin" then
+    path = path .. "/Users/jonahperry/.config/nvim/after/plugin/packer_compiled.lua"
+elseif name == "Windows" then
+    path = path .. "C:/Users/jonah/.config/nvim/after/plugin/packer_compiled.lua"
+end
 
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAIP = fn.system({
@@ -20,7 +28,7 @@ return require("packer").startup(function(use)
         "wbthomason/packer.nvim",
         opt = true,
         config = {
-            compile_path = "/Users/jonahperry/.config/nvim/after/plugin/packer_compiled.lua",
+            compile_path = path,
         },
     })
     if PACKER_BOOTSTRAIP then
@@ -43,7 +51,13 @@ return require("packer").startup(function(use)
     use({ "anuvyklack/fold-preview.nvim" })
     use({ "anuvyklack/keymap-amend.nvim" })
     use({ "folke/trouble.nvim" })
-    use({ "nvim-treesitter/nvim-treesitter" })
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+    })
     use({ "nvim-treesitter/playground" })
     use({ "windwp/nvim-ts-autotag" })
     use({ "nvim-lua/popup.nvim" })
@@ -53,7 +67,7 @@ return require("packer").startup(function(use)
     use({ "nvim-lualine/lualine.nvim" })
     use({ "kyazdani42/nvim-web-devicons" })
     use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
-
+    use({ "Vimjas/vim-python-pep8-indent" })
     use({ "saadparwaiz1/cmp_luasnip" })
     use({ "windwp/nvim-autopairs" })
     use({ "glepnir/lspsaga.nvim", branch = "main" })
