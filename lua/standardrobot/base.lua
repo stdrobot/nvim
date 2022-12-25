@@ -7,7 +7,6 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
     set cursorline
     set cursorlineopt=number
-    filetype on
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
     let &t_ut=''
@@ -17,6 +16,7 @@ vim.cmd([[
     hi LspDiagnosticsVirtualTextWarning guifg=orange gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline 
+
     augroup set_fold_specs
         autocmd!
         autocmd VimEnter * set foldlevel=99
@@ -24,12 +24,13 @@ vim.cmd([[
         autocmd VimEnter * set foldmethod=expr
         autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
     augroup END
+
     augroup remember_folds
       autocmd!
       autocmd BufWinLeave *.* mkview
       autocmd BufWinEnter *.* silent! loadview
     augroup END
-    autocmd BufReadPost,FileReadPost * normal zR
+
     augroup set_colorscheme
         autocmd!
         autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
@@ -38,6 +39,11 @@ vim.cmd([[
     augroup end
 ]])
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+vim.opt.smarttab = true
 vim.g.mapleader = " "
 vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
 vim.opt.encoding = "utf-8"
@@ -50,14 +56,10 @@ vim.opt.termguicolors = true
 vim.opt.inccommand = "nosplit"
 vim.opt.hidden = true
 vim.opt.ruler = true
-vim.opt.tabstop = 4
-vim.opt.expandtab = true
 vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
 vim.opt.completeopt = vim.opt.completeopt - "preview"
-vim.opt.shiftwidth = 4
 vim.opt.title = true
 vim.wo.number = true
-vim.g.filetype = 0
 vim.g.nocompatible = 1
 vim.opt.backup = false
 vim.opt.backspace = { "start", "eol", "indent" }
