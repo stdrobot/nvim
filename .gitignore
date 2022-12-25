@@ -1,2 +1,3 @@
 .DS_Store
 .stylua.toml
+packer_compiled.lua
