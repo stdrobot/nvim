@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["keymap-amend.nvim"] = {
     loaded = true,
     path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/start/keymap-amend.nvim",

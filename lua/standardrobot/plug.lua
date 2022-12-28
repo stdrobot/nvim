@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
     use({ "arcticicestudio/nord" })
     use({ "sam4llis/nvim-tundra" })
     use({ "justinhj/battery.nvim" })
+    use({ "rebelot/kanagawa.nvim" })
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     use({ "neovim/nvim-lspconfig" })
     use({ "hrsh7th/cmp-nvim-lsp" })

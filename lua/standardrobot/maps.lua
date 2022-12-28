@@ -1,5 +1,6 @@
 -- Mappings
 -- Functional wrapper for mapping custom keybindings
+vim.g.mapleader = " "
 local map = function(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -49,6 +50,7 @@ elseif vim.fn.has("win32") then
 end
 map("i", "<C-Return>", "<CR><CR><C-o>k<Tab>")
 map("n", "<S-t>", "::tabnew<CR>")
+map("n", "<leader>m", ":lua vim.diagnostic.open_float()<CR>")
 map("n", "<S-?>", ":!node %<CR>")
 map("n", "<A-q>", ":q<kEnter>")
 map("n", "<C-n>", ":NERDTreeToggle<CR>")
