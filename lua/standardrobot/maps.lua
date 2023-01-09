@@ -1,3 +1,4 @@
+local vim = vim
 -- Mappings
 -- Functional wrapper for mapping custom keybindings
 vim.g.mapleader = " "

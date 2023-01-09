@@ -1,9 +1,12 @@
 -- Safe require alpha. No point in continuing if alpha is not present
-local present, alpha = pcall(require, "alpha")
-if not present then
+local status, alpha = pcall(require, "alpha")
+if not status then
     return
 end
-
+local status2, headers = pcall(require, "headers")
+if not status2 then
+    return
+end
 local function button(sc, txt, keybind)
     local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
 
@@ -46,7 +49,7 @@ end
 local options = {
     header = {
         type = "text",
-        val = require("headers")["random"],
+        val = headers,
         -- val = require("custom.tables.headers").banners.sharp,
         opts = {
             position = "center",

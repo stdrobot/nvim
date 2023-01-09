@@ -1,12 +1,14 @@
 local vim = vim
 local fn = vim.fn
-local install_path = "/Users/jonahperry/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+local install_path = ""
 local name = vim.loop.os_uname().sysname
 local path = ""
 
 if name == "Darwin" then
+    install_path = install_path .. "/Users/jonahperry/.local/share/nvim/site/pack/packer/opt/packer.nvim"
     path = path .. "/Users/jonahperry/.config/nvim/after/plugin/packer_compiled.lua"
-elseif name == "Windows" then
+elseif name == "Windows_NT" then
+    install_path = install_path .. "C:/Users/jonah/.local/share/nvim/site/pack/packer/opt/packer.nvim"
     path = path .. "C:/Users/jonah/.config/nvim/after/plugin/packer_compiled.lua"
 end
 

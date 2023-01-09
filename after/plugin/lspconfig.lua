@@ -61,8 +61,8 @@ local set_fallback_flags = function()
     local fallback_flags = {}
     if name == "Darwin" then
         fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
-    elseif name == "Windows" then
-        fallback_flags = { "--target=x86_x64-w64-windows-gnu", "-std=c++20" }
+    elseif name == "Windows_NT" then
+        fallback_flags = { "-Wall", "-std=c++20" }
     end
     return fallback_flags
 end
@@ -107,10 +107,11 @@ local ts = "typescript-language-server"
 if name == "Darwin" then
     ts = ts
     vscode = vscode
-elseif name == "Windows" then
+elseif name == "Windows_NT" then
     ts = ts .. ".cmd"
     vscode = vscode .. ".cmd"
 end
+
 nvimlsp["tsserver"].setup({
     on_attach = on_attach,
     filetypes = {
@@ -190,7 +191,7 @@ nvimlsp["html"].setup({
 nvimlsp["bashls"].setup({
     on_attach = on_attach,
     capabilities = cmp_capabilities,
-    cmd = { "bash-language-server", "start" },
+    cmd = { "bash-language-server.cmd", "start" },
     cmd_env = { GLOB_PATTERN = "*@(.sh|.zshrc)" },
     root_dir = function()
         return vim.fn.getcwd()

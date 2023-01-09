@@ -1,5 +1,3 @@
--- lua/custom/tables/headers.lua
-
 local headers = {
     imgs = {
         ["abstract"] = {
