@@ -2,6 +2,8 @@
 
 ---
 
+This is just a typical neovim configuration: modualar, equipped, and a config that's scuffed as all hell (as it should be).
+
 ## Personal neovim config files
 
 - I use [packer](https://github.com/wbthomason/packer.nvim) as my plugin manager.

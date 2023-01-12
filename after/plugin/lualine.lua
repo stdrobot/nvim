@@ -2,12 +2,14 @@ local status, lualine = pcall(require, "lualine")
 if not status then
     return
 end
+--[[
 local battery = {
     function()
-        return require("battery").get_status_line()
+        return bat.get_status_line()
     end,
     color = { fg = "#54b079", bg = "bg" },
 }
+]] --
 
 lualine.setup({
     options = {
@@ -20,7 +22,6 @@ lualine.setup({
     sections = {
         lualine_a = {
             "mode",
-            battery,
         },
         lualine_b = { "branch" },
         lualine_c = {
