@@ -5,7 +5,8 @@ if not status then
     return
 end
 
-null_ls.setup({
+local config = {
+
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -19,8 +20,10 @@ null_ls.setup({
         end
     end,
     sources = {
-        formatting.prettierd,
+        formatting.prettierd.with({ filetypes = { "css", "html", "javascript", "json", "yaml" } }),
         formatting.stylua,
         --        formatting.autoflake,
     },
-})
+}
+
+null_ls.setup(config)

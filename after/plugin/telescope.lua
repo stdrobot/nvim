@@ -10,7 +10,8 @@ end
 map(
     "n",
     ";f",
-    "<cmd>lua require('telescope.builtin').find_files({prompt_title = '~R0B07 S34RCH~', shorten_path = false, find_commands='rg'})<CR>",
+    "<cmd>lua require('telescope.builtin').find_files({prompt_title = '~R0B07 S34RCH~', shorten_path = false, find_commands='rg'})<CR>"
+    ,
     { silent = true }
 )
 map(
@@ -26,10 +27,26 @@ local actions = require("telescope.actions")
 
 require("telescope").setup({
     defaults = {
+        prompt_prefix = "> ",
+        selection_caret = "> ",
+        entry_prefix = "  ",
+        multi_icon = "<>",
+        selection_strategy = "reset",
+        sorting_strategy = "descending",
+        scroll_strategy = "cycle",
+        color_devicons = true,
+
         mappings = {
             n = {
                 ["Esc"] = actions.close,
             },
         },
+
+        layout_config = {
+            --       width = 0.95,
+            --      height = 0.85,
+            prompt_position = "top",
+        },
+
     },
 })
