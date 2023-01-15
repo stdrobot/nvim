@@ -1,6 +1,12 @@
 local status, treesitter_conf = pcall(require, "nvim-treesitter.configs")
-if not status then
+local status2, treesitter_install = pcall(require, "nvim-treesitter.install")
+local vim = vim
+if not status or not status2 then
     return
+end
+
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    treesitter_install.prefer_git = false
 end
 
 treesitter_conf.setup({

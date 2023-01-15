@@ -21,7 +21,7 @@ local config = {
     end,
     sources = {
         formatting.prettierd.with({ filetypes = { "css", "html", "javascript", "json", "yaml" } }),
-        formatting.stylua,
+        formatting.stylua.with({ filetypes = { "lua" } }),
         --        formatting.autoflake,
     },
 }
