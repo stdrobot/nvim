@@ -3,12 +3,41 @@ local vim = vim
 local highlight = vim.api.nvim_set_hl
 local nightfox = require("nightfox")
 
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+vim.opt.smarttab = true
+vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
+vim.opt.encoding = "utf-8"
+vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamed"
+vim.opt.cb = "unnamed"
+vim.opt.syntax = "on"
+vim.opt.mouse = "a"
+vim.opt.termguicolors = true
+vim.opt.inccommand = "nosplit"
+vim.opt.hidden = true
+vim.opt.ruler = true
+vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
+vim.opt.completeopt = vim.opt.completeopt - "preview"
+vim.opt.title = true
+vim.wo.number = true
+vim.g.nocompatible = 1
+vim.opt.backup = false
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.si = true
+vim.opt.ai = true
+vim.opt.pumheight = 30
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+highlight(0, "DiagnosticsVirtualTextError", { bg = "#ff0000" })
 vim.g.mapleader = " "
+
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
-    set cursorline
-    set cursorlineopt=number
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
     let &t_ut=''
@@ -40,35 +69,6 @@ vim.cmd([[
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
 ]])
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.softtabstop = 4
-vim.opt.smarttab = true
-vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
-vim.opt.encoding = "utf-8"
-vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamed"
-vim.opt.cb = "unnamed"
-vim.opt.syntax = "on"
-vim.opt.mouse = "a"
-vim.opt.termguicolors = true
-vim.opt.inccommand = "nosplit"
-vim.opt.hidden = true
-vim.opt.ruler = true
-vim.opt.virtualedit = vim.opt.virtualedit + "onemore"
-vim.opt.completeopt = vim.opt.completeopt - "preview"
-vim.opt.title = true
-vim.wo.number = true
-vim.g.nocompatible = 1
-vim.opt.backup = false
-vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.si = true
-vim.opt.ai = true
-vim.opt.pumheight = 30
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-highlight(0, "DiagnosticsVirtualTextError", { bg = "#ff0000" })
 
 local palettes = {
     nordfox = {
