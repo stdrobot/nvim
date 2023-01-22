@@ -49,7 +49,7 @@ end
 local options = {
     header = {
         type = "text",
-        val = headers,
+        val = headers["random"],
         -- val = require("custom.tables.headers").banners.sharp,
         opts = {
             position = "center",

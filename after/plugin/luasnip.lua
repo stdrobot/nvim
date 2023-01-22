@@ -1,4 +1,5 @@
-local ls = require("luasnip")
+local status, ls = pcall(require, "luasnip")
+if not stauts then return end
 ls.filetype_extend("javascript", { "javascriptreact" })
 ls.filetype_extend("typescript", { "typescriptreact" })
 ls.filetype_extend("javascript", { "html" })
