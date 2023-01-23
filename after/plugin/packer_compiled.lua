@@ -51,7 +51,7 @@ local no_errors, error_msg = pcall(function()
 
     time([[Luarocks path setup]], true)
     local package_path_str =
-        "/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+    "/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
     local install_cpath_pattern = "/Users/jonahperry/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
     if not string.find(package.path, package_path_str, 1, true) then
         package.path = package.path .. ";" .. package_path_str
@@ -274,7 +274,7 @@ if not no_errors then
     error_msg = error_msg:gsub('"', '\\"')
     vim.api.nvim_command(
         'echohl ErrorMsg | echom "Error in packer_compiled: '
-            .. error_msg
-            .. '" | echom "Please check your config for correctness" | echohl None'
+        .. error_msg
+        .. '" | echom "Please check your config for correctness" | echohl None'
     )
 end

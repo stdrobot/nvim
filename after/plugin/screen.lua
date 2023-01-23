@@ -45,11 +45,11 @@ local function footer()
     return date .. time .. version
 end
 
--- package.path = "$HOME/.config/nvim/after/plugin?.lua;" .. package.path
+package.path = "$HOME/.config/nvim/after/plugin?.lua;" .. package.path
 local options = {
     header = {
         type = "text",
-        val = headers["random"],
+        val = headers['random'],
         -- val = require("custom.tables.headers").banners.sharp,
         opts = {
             position = "center",
