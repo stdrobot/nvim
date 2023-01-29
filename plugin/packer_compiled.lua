@@ -80,6 +80,7 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["alpha-nvim"] = {
+    config = { "\27LJ\2\n\17\0\0\1\1\0\0\2-\0\0\0L\0\2\0\1\0\0" },
     loaded = true,
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
@@ -194,11 +195,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
-  ["nvim-tundra"] = {
-    loaded = true,
-    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tundra",
-    url = "https://github.com/sam4llis/nvim-tundra"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
@@ -206,7 +202,7 @@ _G.packer_plugins = {
   },
   ["packer.nvim"] = {
     config = {
-      compile_path = "C:/Users/jonah/.config/nvim/after/plugin/packer_compiled.lua"
+      compile_path = "C:/Users/jonah/.config/nvim/after/plugin/"
     },
     loaded = false,
     needs_bufread = false,
@@ -261,6 +257,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n\17\0\0\1\1\0\0\2-\0\0\0L\0\2\0\1\0\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

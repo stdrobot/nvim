@@ -9,11 +9,10 @@ if name == "Darwin" then
     path = path .. "/Users/jonahperry/.config/nvim/after/plugin/packer_compiled.lua"
 elseif name == "Windows_NT" then
     install_path = install_path .. "C:/Users/jonah/.local/share/nvim/site/pack/packer/opt/packer.nvim"
-    path = path .. "C:/Users/jonah/.config/nvim/after/plugin/packer_compiled.lua"
+    path = path .. "C:/Users/jonah/.config/nvim/after/plugin/"
 end
-
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAIP = fn.system({
+    PACKER_BOOTSTRAP = fn.system({
         "git",
         "clone",
         "--depth",
@@ -24,6 +23,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd("packadd packer.nvim")
+local status, screen = pcall(require, 'screen')
+if not status then return end
 
 return require("packer").startup(function(use)
     use({
@@ -33,14 +34,13 @@ return require("packer").startup(function(use)
             compile_path = path,
         },
     })
-    if PACKER_BOOTSTRAIP then
+    if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
     use({ "EdenEast/nightfox.nvim" })
     use({ "morhetz/gruvbox" })
-    use({ "goolord/alpha-nvim" })
+    use({ "goolord/alpha-nvim", config = function() return screen end, })
     use({ "arcticicestudio/nord" })
-    use({ "sam4llis/nvim-tundra" })
     use({ "justinhj/battery.nvim" })
     use({ "rebelot/kanagawa.nvim" })
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
@@ -69,7 +69,7 @@ return require("packer").startup(function(use)
     use({ "preservim/nerdtree" })
     use({ "nvim-lualine/lualine.nvim" })
     use({ "kyazdani42/nvim-web-devicons" })
-    use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
+    use({ "L3MON4D3/LuaSnip" })
     use({ "Vimjas/vim-python-pep8-indent" })
     use({ "saadparwaiz1/cmp_luasnip" })
     use({ "windwp/nvim-autopairs" })
@@ -77,8 +77,6 @@ return require("packer").startup(function(use)
     use({ "mfussenegger/nvim-jdtls" })
     use({ "tpope/vim-surround" })
     use({ "onsails/lspkind.nvim" })
-    -- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-
     use({ "MunifTanjim/prettier.nvim" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
 end)
