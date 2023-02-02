@@ -1,12 +1,11 @@
 local status, null_ls = pcall(require, "null-ls")
-local formatting = null_ls.builtins.formatting
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 if not status then
     return
 end
+local formatting = null_ls.builtins.formatting
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local config = {
-
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -20,9 +19,9 @@ local config = {
         end
     end,
     sources = {
+        formatting.stylua,
+        formatting.black,
         formatting.prettierd.with({ filetypes = { "css", "html", "javascript", "json", "yaml" } }),
-        formatting.stylua.with({ filetypes = { "lua" } }),
-        --        formatting.autoflake,
     },
 }
 
