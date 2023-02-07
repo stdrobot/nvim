@@ -167,6 +167,7 @@ nvimlsp["sumneko_lua"].setup({
             },
         },
     },
+
     capabilities = cmp_capabilities,
     single_file_support = true,
     root_dir = util.root_pattern(".stylua.toml", "stylua.toml"),

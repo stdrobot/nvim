@@ -21,7 +21,19 @@ local config = {
     sources = {
         formatting.stylua,
         formatting.black,
-        formatting.prettierd.with({ filetypes = { "css", "html", "javascript", "json", "yaml" } }),
+        formatting.prettierd.with({
+            filetypes = {
+                "css",
+                "html",
+                "javascript",
+                "json",
+                "yaml",
+                "typescript",
+                "tsx",
+                "javascriptreact",
+                "typescriptreact",
+            },
+        }),
     },
 }
 
