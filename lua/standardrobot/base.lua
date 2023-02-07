@@ -1,3 +1,5 @@
+require("standardrobot.maps")
+require("standardrobot.plug")
 local vim = vim
 -- local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl

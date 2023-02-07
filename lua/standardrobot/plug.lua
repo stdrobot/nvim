@@ -23,8 +23,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd("packadd packer.nvim")
-local status, screen = pcall(require, 'screen')
-if not status then return end
+local status, screen = pcall(require, "screen")
+if not status then
+    return
+end
 
 return require("packer").startup(function(use)
     use({
@@ -39,10 +41,18 @@ return require("packer").startup(function(use)
     end
     use({ "EdenEast/nightfox.nvim" })
     use({ "morhetz/gruvbox" })
-    use({ "goolord/alpha-nvim", config = function() return screen end, })
+    use({
+        "goolord/alpha-nvim",
+        config = function()
+            return screen
+        end,
+    })
+
+    -- THEMES
     use({ "arcticicestudio/nord" })
     use({ "justinhj/battery.nvim" })
     use({ "rebelot/kanagawa.nvim" })
+
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     use({ "neovim/nvim-lspconfig" })
     use({ "hrsh7th/cmp-nvim-lsp" })
@@ -54,6 +64,7 @@ return require("packer").startup(function(use)
     use({ "anuvyklack/fold-preview.nvim" })
     use({ "anuvyklack/keymap-amend.nvim" })
     use({ "folke/trouble.nvim" })
+    use({ "dstein64/vim-startuptime" })
     use({
         "nvim-treesitter/nvim-treesitter",
         run = function()
@@ -66,7 +77,6 @@ return require("packer").startup(function(use)
     use({ "nvim-lua/popup.nvim" })
     use({ "nvim-lua/plenary.nvim" })
     use({ "nvim-telescope/telescope.nvim" })
-    use({ "preservim/nerdtree" })
     use({ "nvim-lualine/lualine.nvim" })
     use({ "kyazdani42/nvim-web-devicons" })
     use({ "L3MON4D3/LuaSnip" })
@@ -79,4 +89,11 @@ return require("packer").startup(function(use)
     use({ "onsails/lspkind.nvim" })
     use({ "MunifTanjim/prettier.nvim" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({ "lukas-reineke/indent-blankline.nvim" })
+
+    -- FERN
+    use({ "lambdalisue/fern.vim" })
+    use({ "lambdalisue/fern-hijack.vim" })
+    use({ "lambdalisue/nerdfont.vim" })
+    use({ "lambdalisue/fern-renderer-nerdfont.vim" })
 end)
