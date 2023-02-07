@@ -11,9 +11,10 @@ This is just a typical neovim configuration: modualar, equipped, and a config th
   - [lspconfig](https://github.com/neovim/nvim-lspconfig)
     - I particularly enjoy writing in C++, Python, and JavaScript. I'm learning Rust, at the moment, too.
   - [cmp](https://github.com/hrsh7th/cmp-nvim-lsp)
+  - [blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
   - [autopairs](https://github.com/windwp/nvim-autopairs)
   - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-  - [NERDTree](https://github.com/preservim/nerdtree)
+  - [fern](https://github.com/lambdalisue/fern.vim)
   - [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - [luasnip](https://github.com/L3MON4D3/LuaSnip)
   - [telescope](https://github.com/nvim-telescope/telescope.nvim)
