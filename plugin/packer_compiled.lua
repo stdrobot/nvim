@@ -110,6 +110,21 @@ _G.packer_plugins = {
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fern-hijack.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fern-hijack.vim",
+    url = "https://github.com/lambdalisue/fern-hijack.vim"
+  },
+  ["fern-renderer-nerdfont.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fern-renderer-nerdfont.vim",
+    url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
+  },
+  ["fern.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fern.vim",
+    url = "https://github.com/lambdalisue/fern.vim"
+  },
   ["fold-preview.nvim"] = {
     loaded = true,
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fold-preview.nvim",
@@ -119,6 +134,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox",
     url = "https://github.com/morhetz/gruvbox"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -145,10 +165,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  nerdtree = {
+  ["nerdfont.vim"] = {
     loaded = true,
-    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdtree",
-    url = "https://github.com/preservim/nerdtree"
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdfont.vim",
+    url = "https://github.com/lambdalisue/nerdfont.vim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -248,6 +268,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-python-pep8-indent",
     url = "https://github.com/Vimjas/vim-python-pep8-indent"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "C:\\Users\\jonah\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,
