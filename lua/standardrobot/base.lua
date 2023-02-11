@@ -4,7 +4,14 @@ local vim = vim
 -- local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
 local nightfox = require("nightfox")
+local name = vim.loop.os_uname().sysname
 
+if name == "Windows_NT" then
+    -- INIT CONFIG; WINDOWS
+    vim.cmd([[let g:python3_host_prog = 'E:/msys64/mingw64/bin/python.exe']])
+elseif name == "Darwin" then
+    vim.cmd([[let g:python3_host_prog = '/usr/bin/python']])
+end
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.tabstop = 4
