@@ -73,13 +73,23 @@ nvimlsp["clangd"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = cmp_capabilities,
-    cmd = { "clangd", "--background-index", "--clang-tidy" },
-    -- single_file_support = false,
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+    },
+    single_file_support = true,
     init_options = {
         fallbackFlags = set_fallback_flags(),
-        -- compilationDatabase = "cmake-build",
     },
-    root_dir = util.root_pattern("clangd", "compile_commands.json", "compile_flags.txt", ".git"),
+    root_dir = util.root_pattern(
+        "clangd",
+        ".clang-tidy",
+        ".clang-format",
+        "compile_commands.json",
+        "compile_flags.txt",
+        ".git"
+    ),
     util.path.dirname,
 })
 
@@ -87,7 +97,7 @@ nvimlsp["pyright"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = cmp_capabilities,
-    -- cmd = { "pyright-langserver", "--stdio" },
+    -- cmd = { "pyright-langserver.exe", "--stdio" },
     root_dir = function()
         return vim.fn.getcwd()
     end,
@@ -145,7 +155,7 @@ nvimlsp["jdtls"].setup({
     end,
 })
 
-nvimlsp["sumneko_lua"].setup({
+nvimlsp["lua_ls"].setup({
     settings = {
         Lua = {
             runtime = {

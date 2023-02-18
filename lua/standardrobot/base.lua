@@ -8,7 +8,7 @@ local name = vim.loop.os_uname().sysname
 
 if name == "Windows_NT" then
     -- INIT CONFIG; WINDOWS
-    vim.cmd([[let g:python3_host_prog = 'E:/msys64/mingw64/bin/python.exe']])
+    vim.cmd([[let g:python3_host_prog = 'C:/Users/jonah/AppData/Local/Programs/Python/Python311/python']])
 elseif name == "Darwin" then
     vim.cmd([[let g:python3_host_prog = '/usr/bin/python']])
 end
@@ -77,6 +77,17 @@ vim.cmd([[
         autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
+
+    function FormatBuffer()
+        if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+            let cursor_pos = getpos('.')
+            :%!clang-format
+            call setpos('.', cursor_pos)
+        endif
+    endfunction
+ 
+ autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
+
 ]])
 
 local palettes = {
