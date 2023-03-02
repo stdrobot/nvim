@@ -1,99 +1,78 @@
 local vim = vim
-local fn = vim.fn
-local install_path = ""
-local name = vim.loop.os_uname().sysname
-local path = ""
 
-if name == "Darwin" then
-    install_path = install_path .. "/Users/jonahperry/.local/share/nvim/site/pack/packer/opt/packer.nvim"
-    path = path .. "/Users/jonahperry/.config/nvim/after/plugin/packer_compiled.lua"
-elseif name == "Windows_NT" then
-    install_path = install_path .. "C:/Users/jonah/.local/share/nvim/site/pack/packer/opt/packer.nvim"
-    path = path .. "C:/Users/jonah/.config/nvim/after/plugin/"
-end
-if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
         "git",
         "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
-        install_path,
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
     })
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd("packadd packer.nvim")
-local status, screen = pcall(require, "screen")
-if not status then
-    return
-end
+return require("lazy").setup({
 
-return require("packer").startup(function(use)
-    use({
-        "wbthomason/packer.nvim",
-        opt = true,
-        config = {
-            compile_path = path,
-        },
-    })
-    if PACKER_BOOTSTRAP then
-        require("packer").sync()
-    end
-    use({ "EdenEast/nightfox.nvim" })
-    use({ "morhetz/gruvbox" })
-    use({
+    "EdenEast/nightfox.nvim",
+    "morhetz/gruvbox",
+
+    {
         "goolord/alpha-nvim",
         config = function()
+            local status, screen = pcall(require, "screen")
+            if not status then
+                return
+            end
             return screen
         end,
-    })
+    },
 
     -- THEMES
-    use({ "arcticicestudio/nord" })
-    use({ "justinhj/battery.nvim" })
-    use({ "rebelot/kanagawa.nvim" })
+    "arcticicestudio/nord",
+    "justinhj/battery.nvim",
+    "rebelot/kanagawa.nvim",
 
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
-    use({ "neovim/nvim-lspconfig" })
-    use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-buffer" })
-    use({ "hrsh7th/cmp-path" })
-    use({ "hrsh7th/nvim-cmp" })
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
 
-    use({ "anuvyklack/pretty-fold.nvim" })
-    use({ "anuvyklack/fold-preview.nvim" })
-    use({ "anuvyklack/keymap-amend.nvim" })
-    use({ "folke/trouble.nvim" })
-    use({ "dstein64/vim-startuptime" })
-    use({
+    "anuvyklack/pretty-fold.nvim",
+    "anuvyklack/fold-preview.nvim",
+    "anuvyklack/keymap-amend.nvim",
+    "folke/trouble.nvim",
+    "dstein64/vim-startuptime",
+
+    {
         "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
-    })
-    use({ "nvim-treesitter/playground" })
-    use({ "windwp/nvim-ts-autotag" })
-    use({ "nvim-lua/popup.nvim" })
-    use({ "nvim-lua/plenary.nvim" })
-    use({ "nvim-telescope/telescope.nvim" })
-    use({ "nvim-lualine/lualine.nvim" })
-    use({ "kyazdani42/nvim-web-devicons" })
-    use({ "L3MON4D3/LuaSnip" })
-    use({ "Vimjas/vim-python-pep8-indent" })
-    use({ "saadparwaiz1/cmp_luasnip" })
-    use({ "windwp/nvim-autopairs" })
-    use({ "glepnir/lspsaga.nvim", branch = "main" })
-    use({ "mfussenegger/nvim-jdtls" })
-    use({ "tpope/vim-surround" })
-    use({ "onsails/lspkind.nvim" })
-    use({ "MunifTanjim/prettier.nvim" })
-    use({ "jose-elias-alvarez/null-ls.nvim" })
-    use({ "lukas-reineke/indent-blankline.nvim" })
+        build = ":TSUpdate",
+    },
+    "nvim-treesitter/playground",
+    "windwp/nvim-ts-autotag",
+    "nvim-lua/popup.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-lualine/lualine.nvim",
+    "kyazdani42/nvim-web-devicons",
+    "L3MON4D3/LuaSnip",
+    "Vimjas/vim-python-pep8-indent",
+    "saadparwaiz1/cmp_luasnip",
+    "windwp/nvim-autopairs",
+    { "glepnir/lspsaga.nvim", branch = "main" },
+    "mfussenegger/nvim-jdtls",
+    "tpope/vim-surround",
+    "onsails/lspkind.nvim",
+    "MunifTanjim/prettier.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "lukas-reineke/indent-blankline.nvim",
 
     -- FERN
-    use({ "lambdalisue/fern.vim" })
-    use({ "lambdalisue/fern-hijack.vim" })
-    use({ "lambdalisue/nerdfont.vim" })
-    use({ "lambdalisue/fern-renderer-nerdfont.vim" })
-end)
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+    },
+})

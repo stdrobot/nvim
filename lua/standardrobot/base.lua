@@ -86,10 +86,23 @@ vim.cmd([[
         endif
     endfunction
  
- autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
+     autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
 
+    set modifiable
 ]])
 
+vim.api.nvim_create_augroup("nobg", { clear = true })
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+    desc = "Make all backgrounds transparent",
+    group = "nobg",
+    pattern = "*",
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
+        -- etc...
+    end,
+})
 local palettes = {
     nordfox = {
         comment = "#828fa1",
