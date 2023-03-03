@@ -49,13 +49,15 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
+
+    highlight IndentBlanklineChar guifg=#2E313A gui=nocombine
     let &t_ut=''
     let g:SimpylFold_docstring_preview = 1
     set fileencoding=utf-8
     let $LANG='en_US.UTF-8'
     hi LspDiagnosticsVirtualTextWarning guifg=orange gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
-    hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline 
+    hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline
 
     augroup set_fold_specs
         autocmd!
@@ -77,16 +79,6 @@ vim.cmd([[
         autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
-
-    function FormatBuffer()
-        if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
-            let cursor_pos = getpos('.')
-            :%!clang-format
-            call setpos('.', cursor_pos)
-        endif
-    endfunction
- 
-     autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
 
     set modifiable
 ]])
@@ -120,7 +112,7 @@ local specs = {
             builtin3 = "#d06f79",
             conditional = "#c895bf",
             type = "#ebcb8b",
-            --[[    
+            --[[
             builtin0 = "#bf616a",
             builtin1 = "#93ccdc",
             builtin2 = "#d89079",

@@ -82,14 +82,7 @@ nvimlsp["clangd"].setup({
     init_options = {
         fallbackFlags = set_fallback_flags(),
     },
-    root_dir = util.root_pattern(
-        "clangd",
-        ".clang-tidy",
-        ".clang-format",
-        "compile_commands.json",
-        "compile_flags.txt",
-        ".git"
-    ),
+    root_dir = util.root_pattern("clangd", ".clang-tidy", "compile_commands.json", "compile_flags.txt", ".git"),
     util.path.dirname,
 })
 
@@ -177,7 +170,6 @@ nvimlsp["lua_ls"].setup({
             },
         },
     },
-
     capabilities = cmp_capabilities,
     single_file_support = true,
     root_dir = util.root_pattern(".stylua.toml", "stylua.toml"),
