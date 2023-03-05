@@ -43,6 +43,7 @@ vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 highlight(0, "DiagnosticsVirtualTextError", { bg = "#ff0000" })
 vim.g.mapleader = " "
+local original_color = "#2E313A"
 
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
@@ -50,7 +51,7 @@ vim.cmd([[
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
 
-    highlight IndentBlanklineChar guifg=#2E313A gui=nocombine
+    highlight IndentBlanklineChar guifg=#3b4752 gui=nocombine
     let &t_ut=''
     let g:SimpylFold_docstring_preview = 1
     set fileencoding=utf-8
