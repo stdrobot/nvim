@@ -191,6 +191,12 @@ nvimlsp["html"].setup({
     },
 })
 
+nvimlsp["dockerls"].setup({
+    cmd = { "docker-langserver", "--stdio" },
+    filetypes = { "dockerfile" },
+    root_dir = util.root_pattern("Dockerfile"),
+})
+
 nvimlsp["bashls"].setup({
     on_attach = on_attach,
     capabilities = cmp_capabilities,
