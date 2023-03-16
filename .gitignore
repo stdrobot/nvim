@@ -1,3 +1,4 @@
 .DS_Store
+lazy-lock.json
 .stylua.toml
 **/*/packer_compiled.lua
