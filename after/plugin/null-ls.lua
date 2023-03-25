@@ -20,7 +20,7 @@ local config = {
     end,
     sources = {
         formatting.stylua,
-        formatting.black,
+        formatting.autopep8,
         formatting.prettierd.with({
             filetypes = {
                 "css",
