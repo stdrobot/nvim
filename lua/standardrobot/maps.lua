@@ -21,8 +21,11 @@ elseif vim.fn.has("win32") then
 end
 if vim.loop.os_uname().sysname == "Darwin" then
     vim.cmd([[ map <C-f> :!./%:r.exe<CR>]])
+
+    map("n", "<C-p>", ":!python3 %<CR>")
 elseif vim.fn.has("win32") then
     vim.cmd([[ map <C-f> :!%:r.exe<CR>]])
+    map("n", "<C-p>", ":!python %<CR>")
 end
 map("i", "<C-Return>", "<CR><CR><C-o>k<Tab>")
 map("n", "<S-t>", "::tabnew<CR>")
@@ -33,7 +36,6 @@ map("v", "<", "<gv", { noremap = true })
 map("v", ">", ">gv", { noremap = true })
 map("n", "<C-l>", ":vsplit<CR>")
 map("n", "<C-k>", ":split<CR>")
-map("n", "<C-p>", ":!python3 %<CR>")
 map("n", "<S-Right>", "<C-w>l <CR>")
 map("n", "<S-Left>", "<C-w>h <CR>")
 map("n", "<C-0>", "<cmd>TroubleToggle<CR>", { noremap = true })

@@ -51,7 +51,6 @@ vim.cmd([[
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
 
-    highlight IndentBlanklineChar guifg=#3b4752 gui=nocombine
     let &t_ut=''
     let g:SimpylFold_docstring_preview = 1
     set fileencoding=utf-8

@@ -10,6 +10,7 @@ blankline.setup({
     filetype_exclude = {
         "help",
         "terminal",
+        "markdown",
         "dashboard",
         "packer",
 
@@ -18,3 +19,12 @@ blankline.setup({
         "TelescopeResults",
     },
 })
+
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+vim.cmd([[
+    highlight IndentBlanklineChar guifg=#3b4752 gui=nocombine 
+    highlight IndentBlanklineSpaceChar guifg=#3b4752 gui=nocombine
+]])
