@@ -82,7 +82,14 @@ nvimlsp["clangd"].setup({
     init_options = {
         fallbackFlags = set_fallback_flags(),
     },
-    root_dir = util.root_pattern("clangd", ".clang-tidy", "compile_commands.json", "compile_flags.txt", ".git"),
+    root_dir = util.root_pattern(
+        "clangd",
+        ".clang-format",
+        ".clang-tidy",
+        "compile_commands.json",
+        "compile_flags.txt",
+        ".git"
+    ),
     util.path.dirname,
 })
 

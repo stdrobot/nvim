@@ -112,22 +112,6 @@ local specs = {
             builtin3 = "#d06f79",
             conditional = "#c895bf",
             type = "#ebcb8b",
-            --[[
-            builtin0 = "#bf616a",
-            builtin1 = "#93ccdc",
-            builtin2 = "#d89079",
-            builtin3 = "#d06f79",
-            const = "#d89079",
-            dep = "#7e8188",
-            field = "#81a1c1",
-            ident = "#88c0d0",
-            keyword = "#b48ead",
-            operator = "#abb1bb",
-            preproc = "#d092ce",
-            statement = "#b48ead",
-            string = "#a3be8c",
-            type = "#ebcb8b",
-            --]]
         },
     },
 }
