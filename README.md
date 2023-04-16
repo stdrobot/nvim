@@ -6,7 +6,7 @@ This is just a typical neovim configuration: modualar, equipped, and a config th
 
 ## Personal neovim config files
 
-- I use [packer](https://github.com/wbthomason/packer.nvim) as my plugin manager.
+- I use [Lazy](https://github.com/folke/lazy.nvim) as my plugin manager.
 - Plugins include:
   - [lspconfig](https://github.com/neovim/nvim-lspconfig)
     - I particularly enjoy writing in C++, Python, and JavaScript. I'm learning Rust, at the moment, too.
