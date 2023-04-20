@@ -43,11 +43,14 @@ vim.opt.pumheight = 30
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 highlight(0, "DiagnosticsVirtualTextError", { bg = "#ff0000" })
 vim.g.mapleader = " "
-local original_color = "#2E313A"
+-- local original_color = "#2E313A"
 
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
+
+    set modifiable
+    set nofixeol
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
 
@@ -80,7 +83,6 @@ vim.cmd([[
         autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
     augroup end
 
-    set modifiable
 ]])
 
 vim.api.nvim_create_augroup("nobg", { clear = true })
@@ -117,4 +119,5 @@ local specs = {
 }
 
 nightfox.setup({ palettes = palettes, specs = specs })
-vim.cmd.colorscheme("nordfox")
+-- vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("catppuccin-mocha")

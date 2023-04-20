@@ -17,7 +17,7 @@ return require("lazy").setup({
 
     "EdenEast/nightfox.nvim",
     "morhetz/gruvbox",
-
+    { "catppuccin/nvim", name = "catppuccin" },
     {
         "goolord/alpha-nvim",
         config = function()
@@ -40,7 +40,6 @@ return require("lazy").setup({
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
-
     "anuvyklack/pretty-fold.nvim",
     "anuvyklack/fold-preview.nvim",
     "anuvyklack/keymap-amend.nvim",
