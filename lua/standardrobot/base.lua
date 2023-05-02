@@ -120,4 +120,4 @@ local specs = {
 
 nightfox.setup({ palettes = palettes, specs = specs })
 -- vim.cmd.colorscheme("catppuccin-mocha")
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("nordfox")

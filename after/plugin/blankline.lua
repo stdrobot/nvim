@@ -20,11 +20,21 @@ blankline.setup({
     },
 })
 
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
+local listchars = vim.opt.listchars
+-- vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("eol:↴")
+listchars:append({
+    eol = '↲',
+    --    tab = '»·',
+    --    space = '␣',
+    trail = '-',
+    extends = '☛',
+    precedes = '☚',
+    conceal = '┊',
+    nbsp = '☠',
+})
 
 vim.cmd([[
-    highlight IndentBlanklineChar guifg=#3b4752 gui=nocombine 
+    highlight IndentBlanklineChar guifg=#3b4752 gui=nocombine
     highlight IndentBlanklineSpaceChar guifg=#3b4752 gui=nocombine
 ]])
