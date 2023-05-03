@@ -5,6 +5,9 @@ end
 local name = vim.loop.os_uname().sysname
 local util = nvimlsp.util
 
+local bufnr = vim.api.nvim_get_current_buf()
+local bufname = vim.api.nvim_buf_get_name(bufnr)
+
 -- Setup nvim-cmp.
 
 local opts = { noremap = true, silent = true }
@@ -60,9 +63,17 @@ local lsp_flags = {
 local set_fallback_flags = function()
     local fallback_flags = {}
     if name == "Darwin" then
-        fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
+        if #bufname == 55 then
+            fallback_flags = { "--target=arm64-apple-darwin", "-std=gnu2x", "-Wall" }
+        else
+            fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
+        end
     elseif name == "Windows_NT" then
-        fallback_flags = { "-Wall", "-std=c++20" }
+        if #bufname == 55 then
+            fallback_flags = { "-Wall", "-std=gnu2x" }
+        else
+            fallback_flags = { "-Wall", "-std=c++20" }
+        end
     end
     return fallback_flags
 end

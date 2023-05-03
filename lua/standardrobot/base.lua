@@ -44,11 +44,9 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 highlight(0, "DiagnosticsVirtualTextError", { bg = "#ff0000" })
 vim.g.mapleader = " "
 -- local original_color = "#2E313A"
-
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
-
     set modifiable
     set nofixeol
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
@@ -117,6 +115,7 @@ local specs = {
         },
     },
 }
+
 
 nightfox.setup({ palettes = palettes, specs = specs })
 -- vim.cmd.colorscheme("catppuccin-mocha")

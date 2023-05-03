@@ -2,6 +2,10 @@ local vim = vim
 -- Mappings
 -- Functional wrapper for mapping custom keybindings
 vim.g.mapleader = " "
+
+local bufnr = vim.api.nvim_get_current_buf()
+local bufname = vim.api.nvim_buf_get_name(bufnr)
+
 local map = function(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -11,13 +15,17 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 if vim.loop.os_uname().sysname == "Darwin" then
-    if vim.fn.getcwd() == "/Users/jonahperry/.scripts/dev" then
-        vim.cmd([[ map <C-g> :!g++ -Wall -std=c++2a % -o ../%:r.exe<CR>]])
+    if #bufname == 55 then
+        map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
     else
-        vim.cmd([[ map <C-g> :!g++ -Wall -std=c++2a % -o %:r.exe<CR>]])
+        map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
     end
-elseif vim.fn.has("win32") then
-    vim.cmd([[ map <C-g> :!g++ -Wall -std=c++20 % -o %:r.exe<CR>]])
+elseif vim.loop.os.uname().sysname == "Windows_NT" then
+    if #bufname == 55 then
+        map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
+    else
+        map("n", "<C-g>", ":!g++ -Wall -std=c++20 % -o %:r.exe<CR>")
+    end
 end
 if vim.loop.os_uname().sysname == "Darwin" then
     vim.cmd([[ map <C-f> :!./%:r.exe<CR>]])
