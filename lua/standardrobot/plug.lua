@@ -17,7 +17,7 @@ return require("lazy").setup({
 
     "EdenEast/nightfox.nvim",
     "morhetz/gruvbox",
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim",      name = "catppuccin" },
     {
         "goolord/alpha-nvim",
         config = function()
@@ -68,10 +68,5 @@ return require("lazy").setup({
     "MunifTanjim/prettier.nvim",
     "jose-elias-alvarez/null-ls.nvim",
     "lukas-reineke/indent-blankline.nvim",
-
-    -- FERN
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
-    },
+    "nvim-tree/nvim-tree.lua"
 })
