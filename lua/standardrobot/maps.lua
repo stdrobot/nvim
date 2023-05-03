@@ -20,7 +20,7 @@ if vim.loop.os_uname().sysname == "Darwin" then
     else
         map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
     end
-elseif vim.loop.os.uname().sysname == "Windows_NT" then
+elseif vim.loop.os_uname().sysname == "Windows_NT" then
     if #bufname == 55 then
         map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
     else
