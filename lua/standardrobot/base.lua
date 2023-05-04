@@ -47,6 +47,7 @@ vim.g.mapleader = " "
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
+
     set modifiable
     set nofixeol
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none

@@ -62,19 +62,26 @@ local lsp_flags = {
 
 local set_fallback_flags = function()
     local fallback_flags = {}
-    if name == "Darwin" then
-        if #bufname == 55 then
-            fallback_flags = { "--target=arm64-apple-darwin", "-std=gnu2x", "-Wall" }
-        else
-            fallback_flags = { "--target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "cpp",
+        callback = function()
+            if vim.loop.os_uname().sysname == "Darwin" then
+                fallback_flags = { "-target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
+            else
+                fallback_flags = { "-std=c++20", "-Wall" }
+            end
         end
-    elseif name == "Windows_NT" then
-        if #bufname == 55 then
-            fallback_flags = { "-Wall", "-std=gnu2x" }
-        else
-            fallback_flags = { "-Wall", "-std=c++20" }
+    })
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "c",
+        callback = function()
+            if vim.loop.os_uname().sysname == "Darwin" then
+                fallback_flags = { "-target=arm64-apple-darwin", "-std=gnu2x", "-Wall" }
+            else
+                fallback_flags = { "-std=gnu2x", "-Wall" }
+            end
         end
-    end
+    })
     return fallback_flags
 end
 

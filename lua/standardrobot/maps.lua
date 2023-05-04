@@ -13,26 +13,33 @@ local map = function(mode, lhs, rhs, opts)
     end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-if vim.loop.os_uname().sysname == "Darwin" then
-    if #bufname == 55 then
-        map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
-    else
-        map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "c",
+    callback = function()
+        if vim.loop.os_uname().sysname == "Windows_NT" then
+            map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
+            map("n", "<C-f>", ":!%:r.exe<CR>")
+        else
+            map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
+            map("n", "<C-f>", ":!./%:r.exe<CR>")
+        end
     end
-elseif vim.loop.os_uname().sysname == "Windows_NT" then
-    if #bufname == 55 then
-        map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
-    else
-        map("n", "<C-g>", ":!g++ -Wall -std=c++20 % -o %:r.exe<CR>")
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "cpp",
+    callback = function()
+        if vim.loop.os_uname().sysname == "Windows_NT" then
+            map("n", "<C-g>", ":!g++ -Wall -std=c++20 % -o %:r.exe<CR>")
+            map("n", "<C-f>", ":!%:r.exe<CR>")
+        else
+            map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
+            map("n", "<C-f>", ":!./%:r.exe<CR>")
+        end
     end
-end
+})
 if vim.loop.os_uname().sysname == "Darwin" then
-    vim.cmd([[ map <C-f> :!./%:r.exe<CR>]])
-
     map("n", "<C-p>", ":!python3 %<CR>")
 elseif vim.fn.has("win32") then
-    vim.cmd([[ map <C-f> :!%:r.exe<CR>]])
     map("n", "<C-p>", ":!python %<CR>")
 end
 map("i", "<C-Return>", "<CR><CR><C-o>k<Tab>")
