@@ -21,7 +21,7 @@ local config = {
     sources = {
         formatting.stylua,
         formatting.autopep8,
-        formatting.prettierd.with({
+        formatting.prettier.with({
             filetypes = {
                 "css",
                 "html",

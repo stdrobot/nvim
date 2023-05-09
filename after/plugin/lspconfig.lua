@@ -244,3 +244,15 @@ nvimlsp["cmake"].setup({
         buildDirectory = "build",
     },
 })
+
+nvimlsp['astro'].setup({
+    cmd = { "astro-ls", "--stdio" },
+    filetypes = { "astro" },
+    root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+    init_options = {
+        configuration = {},
+        typescript = {
+            serverPath = "/Users/jonahperry/Library/pnpm/typescript-language-server"
+        }
+    }
+})
