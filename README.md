@@ -30,7 +30,7 @@ This is just a typical neovim configuration: modualar, equipped, and a config th
   - [trouble](https://github.com/folke/trouble.nvim)
   - [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
   - [prettier](https://github.com/MunifTanjim/prettier.nvim)
-- I alternative between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [gruvbox](https://github.com/morhetz/gruvbox) depending on what I'm feeling.
+- I alternate between [nightfox](https://github.com/EdenEast/nightfox.nvim) and [catppuccin-mocha](https://github.com/catppuccin/nvim) depending on what I'm feeling.
 
 # Why do I use this config?
 
