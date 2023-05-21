@@ -206,12 +206,15 @@ nvimlsp["cmake"].setup({
 
 local vscode = "vscode-html-language-server"
 local ts = "typescript-language-server"
+local s_path = ""
 if name == "Darwin" then
     ts = ts
     vscode = vscode
+    s_path = "/Users/jonahperry/Library/pnpm/global/5/node_modules/typescript/lib/tsserverlibrary.js"
 elseif name == "Windows_NT" then
     ts = ts .. ".cmd"
     vscode = vscode .. ".cmd"
+    s_path = "C:/Users/jonah/AppData/Local/pnpm/global/5/node_modules/typescript/lib/tsserverlibrary.js"
 end
 
 nvimlsp["html"].setup({
@@ -249,7 +252,7 @@ nvimlsp["astro"].setup({
     init_options = {
         configuration = {},
         typescript = {
-            serverPath = "C:/Users/jonah/AppData/Local/pnpm/global/5/node_modules/typescript/lib/tsserverlibrary.js",
+            serverPath = s_path,
         },
     },
     root_dir = nvimlsp.util.root_pattern("astro.config.mjs", "package.json", "tsconfig.json", ".git", ".npmrc"),
