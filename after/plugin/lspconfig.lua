@@ -70,7 +70,7 @@ local set_fallback_flags = function()
             else
                 fallback_flags = { "-std=c++20", "-Wall" }
             end
-        end
+        end,
     })
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "c",
@@ -80,7 +80,7 @@ local set_fallback_flags = function()
             else
                 fallback_flags = { "-std=gnu2x", "-Wall" }
             end
-        end
+        end,
     })
     return fallback_flags
 end
@@ -130,34 +130,6 @@ nvimlsp["pyright"].setup({
     },
 })
 
-local vscode = "vscode-html-language-server"
-local ts = "typescript-language-server"
-if name == "Darwin" then
-    ts = ts
-    vscode = vscode
-elseif name == "Windows_NT" then
-    ts = ts .. ".cmd"
-    vscode = vscode .. ".cmd"
-end
-
-nvimlsp["tsserver"].setup({
-    on_attach = on_attach,
-    filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-    },
-    cmd = { ts, "--stdio" },
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
-    capabilities = cmp_capabilities,
-    flag = lsp_flags,
-})
-
 nvimlsp["rust_analyzer"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
@@ -177,19 +149,15 @@ nvimlsp["lua_ls"].setup({
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = "LuaJIT",
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
                 globals = { "vim" },
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
                 enable = false,
             },
@@ -206,15 +174,6 @@ nvimlsp["gopls"].setup({
 })
 
 cmp_capabilities.textDocument.completion.snippetSupport = true
-
-nvimlsp["html"].setup({
-    capabilities = cmp_capabilities,
-    cmd = { vscode, "--stdio" },
-    filetypes = { "html" },
-    init_options = {
-        provideFormatter = false,
-    },
-})
 
 nvimlsp["dockerls"].setup({
     cmd = { "docker-langserver", "--stdio" },
@@ -245,14 +204,53 @@ nvimlsp["cmake"].setup({
     },
 })
 
-nvimlsp['astro'].setup({
+local vscode = "vscode-html-language-server"
+local ts = "typescript-language-server"
+if name == "Darwin" then
+    ts = ts
+    vscode = vscode
+elseif name == "Windows_NT" then
+    ts = ts .. ".cmd"
+    vscode = vscode .. ".cmd"
+end
+
+nvimlsp["html"].setup({
+    capabilities = cmp_capabilities,
+    cmd = { vscode, "--stdio" },
+    filetypes = { "html" },
+    init_options = {
+        provideFormatter = false,
+    },
+})
+
+nvimlsp["tsserver"].setup({
+    on_attach = on_attach,
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+    },
+    cmd = { ts, "--stdio" },
+    root_dir = function()
+        return vim.fn.getcwd()
+    end,
+    capabilities = cmp_capabilities,
+    flag = lsp_flags,
+})
+
+nvimlsp["astro"].setup({
+    on_attach = on_attach,
+    capabilities = cmp_capabilities,
     cmd = { "astro-ls", "--stdio" },
     filetypes = { "astro" },
-    root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
     init_options = {
         configuration = {},
         typescript = {
-            serverPath = "/Users/jonahperry/Library/pnpm/typescript-language-server"
-        }
-    }
+            serverPath = "C:/Users/jonah/AppData/Local/pnpm/global/5/node_modules/typescript/lib/tsserverlibrary.js",
+        },
+    },
+    root_dir = nvimlsp.util.root_pattern("astro.config.mjs", "package.json", "tsconfig.json", ".git", ".npmrc"),
 })

@@ -23,6 +23,7 @@ local config = {
         formatting.autopep8,
         formatting.prettier.with({
             filetypes = {
+                "astro",
                 "css",
                 "html",
                 "javascript",

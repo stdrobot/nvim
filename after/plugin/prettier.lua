@@ -6,6 +6,7 @@ end
 prettier.setup({
     bin = "prettier",
     filetypes = {
+        "astro",
         "html",
         "css",
         "javascript",
