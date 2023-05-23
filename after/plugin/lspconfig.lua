@@ -115,7 +115,7 @@ nvimlsp["pyright"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = cmp_capabilities,
-    -- cmd = { "pyright-langserver.exe", "--stdio" },
+    cmd = { "pyright-langserver", "--stdio" },
     root_dir = function()
         return vim.fn.getcwd()
     end,
