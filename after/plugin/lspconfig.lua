@@ -68,7 +68,7 @@ local set_fallback_flags = function()
             if vim.loop.os_uname().sysname == "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
             else
-                fallback_flags = { "-std=c++20", "-Wall" }
+                fallback_flags = { "--target=x86_64-w64-windows-gnu", "-std=c++20", "-Wall" }
             end
         end,
     })
