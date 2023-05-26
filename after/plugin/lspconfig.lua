@@ -68,7 +68,7 @@ local set_fallback_flags = function()
             if vim.loop.os_uname().sysname == "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
             else
-                fallback_flags = { "--target=x86_64-w64-windows-gnu", "-std=c++20", "-Wall" }
+                fallback_flags = { "-target=x86_64-w64-windows-gnu", "-std=c++17", "-Wall" }
             end
         end,
     })
@@ -87,17 +87,18 @@ end
 
 -- END FLAGS
 
+local clangd_path = "C:/msys64/ucrt64/bin/clangd"
 nvimlsp["clangd"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = cmp_capabilities,
     cmd = {
-        "clangd",
+        clangd_path,
         "--background-index",
         "--clang-tidy",
     },
     single_file_support = true,
-    init_options = {
+    settings = {
         fallbackFlags = set_fallback_flags(),
     },
     root_dir = util.root_pattern(
