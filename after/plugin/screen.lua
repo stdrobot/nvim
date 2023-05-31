@@ -3,7 +3,7 @@ local status, alpha = pcall(require, "alpha")
 if not status then
     return
 end
-local status2, headers = pcall(require, "headers")
+local status2, headers = pcall(require, "plugin.headers")
 if not status2 then
     return
 end
@@ -46,11 +46,11 @@ local function footer()
 end
 
 package.path = "$HOME/.config/nvim/after/plugin?.lua;" .. package.path
+print(package.path)
 local options = {
     header = {
         type = "text",
-        val = headers['random'],
-        -- val = require("custom.tables.headers").banners.sharp,
+        val = headers["random"],
         opts = {
             position = "center",
             hl = "AlphaHeader",

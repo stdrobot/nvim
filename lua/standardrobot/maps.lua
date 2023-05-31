@@ -13,6 +13,7 @@ local map = function(mode, lhs, rhs, opts)
     end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "c",
     callback = function()
@@ -23,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
             map("n", "<C-g>", ":!gcc -Wall -std=gnu2x % -o %:r.exe<CR>")
             map("n", "<C-f>", ":!./%:r.exe<CR>")
         end
-    end
+    end,
 })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "cpp",
@@ -35,7 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
             map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
             map("n", "<C-f>", ":!./%:r.exe<CR>")
         end
-    end
+    end,
 })
 if vim.loop.os_uname().sysname == "Darwin" then
     map("n", "<C-p>", ":!python3 %<CR>")
