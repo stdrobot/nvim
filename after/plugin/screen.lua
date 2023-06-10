@@ -1,12 +1,14 @@
 -- Safe require alpha. No point in continuing if alpha is not present
+package.path = "C:/Users/jonah/.config/nvim/after/plugin/?.lua;;" .. package.path
 local status, alpha = pcall(require, "alpha")
 if not status then
     return
 end
-local status2, headers = pcall(require, "plugin.headers")
+local status2, headers = pcall(require, "headers")
 if not status2 then
     return
 end
+
 local function button(sc, txt, keybind)
     local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
 
@@ -45,8 +47,6 @@ local function footer()
     return date .. time .. version
 end
 
-package.path = "$HOME/.config/nvim/after/plugin?.lua;" .. package.path
-print(package.path)
 local options = {
     header = {
         type = "text",

@@ -18,13 +18,12 @@ return require("lazy").setup({
     "EdenEast/nightfox.nvim",
     "morhetz/gruvbox",
     { "catppuccin/nvim", name = "catppuccin" },
+
     {
         "goolord/alpha-nvim",
+        event = "VimEnter",
         config = function()
-            local status, screen = pcall(require, "screen")
-            if not status then
-                return
-            end
+            local screen = require("screen")
             return screen
         end,
     },
@@ -57,6 +56,7 @@ return require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     "nvim-lualine/lualine.nvim",
     "kyazdani42/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
     "L3MON4D3/LuaSnip",
     "Vimjas/vim-python-pep8-indent",
     "saadparwaiz1/cmp_luasnip",
