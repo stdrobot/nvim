@@ -65,7 +65,7 @@ local set_fallback_flags = function()
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "cpp",
         callback = function()
-            if vim.loop.os_uname().sysname == "Darwin" then
+            if name == "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
             else
                 fallback_flags = { "-target=x86_64-w64-windows-gnu", "-std=c++17", "-Wall" }
@@ -75,7 +75,7 @@ local set_fallback_flags = function()
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "c",
         callback = function()
-            if vim.loop.os_uname().sysname == "Darwin" then
+            if name "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=gnu2x", "-Wall" }
             else
                 fallback_flags = { "-std=gnu2x", "-Wall" }
@@ -86,8 +86,13 @@ local set_fallback_flags = function()
 end
 
 -- END FLAGS
+local clangd_path = ""
+if name == "Darwin" then
+    clangd_path = clangd_path .. "clangd"
+else
+    clangd_path = clangd_path .. "C:/msys64/ucrt64/bin/clangd"
+end
 
-local clangd_path = "C:/msys64/ucrt64/bin/clangd"
 nvimlsp["clangd"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
