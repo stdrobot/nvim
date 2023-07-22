@@ -4,8 +4,8 @@ local status, alpha = pcall(require, "alpha")
 if not status then
     return
 end
-local status2, headers = pcall(require, "headers")
-if not status2 then
+local header_status, headers = pcall(require, "headers")
+if not header_status then
     return
 end
 
@@ -68,7 +68,7 @@ local options = {
             button(";s", "  Settings", ":e $MYVIMRC | :cd %:p:h | :split . | :wincmd w | :pwd<CR>"),
             button(";q", "  Exit Neovim", ":qa<CR>"),
         },
-        -- opts = { spacing = 1 },
+        opts = { spacing = 1 },
     },
 
     footer = {

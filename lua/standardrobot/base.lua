@@ -1,9 +1,12 @@
 require("standardrobot.maps")
 require("standardrobot.plug")
 local vim = vim
--- local group = vim.api.nvim_create_augroup
+local group = vim.api.nvim_create_augroup
 local highlight = vim.api.nvim_set_hl
+
 local nightfox = require("nightfox")
+local catp = require("catppuccin")
+
 local name = vim.loop.os_uname().sysname
 
 if name == "Windows_NT" then
@@ -19,7 +22,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.smarttab = true
-vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
+--vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
 vim.opt.encoding = "utf-8"
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed"
@@ -75,13 +78,6 @@ vim.cmd([[
       autocmd BufWinEnter *.* silent! loadview
     augroup END
 
-    augroup set_colorscheme
-        autocmd!
-        autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
-        autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
-        autocmd ColorScheme * highlight NormalNC guibg=NONE ctermbg=NONE
-    augroup end
-
 ]])
 
 vim.api.nvim_create_augroup("nobg", { clear = true })
@@ -93,15 +89,20 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
         -- etc...
     end,
 })
+--
+
 local palettes = {
     nordfox = {
         comment = "#828fa1",
     },
     -- Custom duskfox with black background
 }
+
 local specs = {
     nordfox = {
         syntax = {
@@ -117,6 +118,14 @@ local specs = {
     },
 }
 
+catp.setup({
+    flavour = "mocha",
+    color_overrides = {
+        all = {
+            overlay0 = "#99a4b2",
+        },
+    },
+})
 nightfox.setup({ palettes = palettes, specs = specs })
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("nordfox")

@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "cpp",
     callback = function()
         if vim.loop.os_uname().sysname == "Windows_NT" then
-            map("n", "<C-g>", ":!g++ -Wall -std=c++20 % -o %:r.exe<CR>")
+            map("n", "<C-g>", ":!g++ % -o %:r.exe<CR>")
             map("n", "<C-f>", ":!%:r.exe<CR>")
         else
             map("n", "<C-g>", ":!g++ -Wall -std=c++2a % -o %:r.exe<CR>")
@@ -50,8 +50,8 @@ map("n", "<S-?>", ":!node %<CR>")
 map("n", "<A-q>", ":q<kEnter>")
 map("v", "<", "<gv", { noremap = true })
 map("v", ">", ">gv", { noremap = true })
-map("n", "<C-l>", ":vsplit<CR>")
-map("n", "<C-k>", ":split<CR>")
+map("n", "<C-]>", ":vsplit<CR>")
+map("n", "<C-\\>", ":split<CR>")
 map("n", "<S-Right>", "<C-w>l <CR>")
 map("n", "<C-n>", ":NvimTreeToggle<kEnter>")
 map("n", "<S-Left>", "<C-w>h <CR>")

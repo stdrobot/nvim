@@ -245,6 +245,43 @@ nvimlsp["tsserver"].setup({
     flag = lsp_flags,
 })
 
+nvimlsp["tailwindcss"].setup({
+    on_attach = on_attach,
+    filetypes = {
+        "astro",
+        "astro-markdown",
+        "html",
+        "liquid",
+        "markdown",
+        "nunjucks",
+        "php",
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "reason",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+    },
+    root_dir = nvimlsp.util.root_pattern(
+        "tailwind.config.js",
+        "tailwind.config.cjs",
+        "tailwind.config.mjs",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "postcss.config.cjs",
+        "postcss.config.mjs",
+        "postcss.config.ts",
+        "package.json",
+        "node_modules",
+        ".git"
+    ),
+})
+
 nvimlsp["astro"].setup({
     on_attach = on_attach,
     capabilities = cmp_capabilities,
@@ -257,4 +294,13 @@ nvimlsp["astro"].setup({
         },
     },
     root_dir = nvimlsp.util.root_pattern("astro.config.mjs", "package.json", "tsconfig.json", ".git", ".npmrc"),
+})
+
+nvimlsp["zls"].setup({
+    on_attach = on_attach,
+})
+
+nvimlsp["ocamlls"].setup({
+    cmd = { "ocaml-language-server", "--stdio" },
+    filetypes = { "ocaml", "reason" },
 })

@@ -17,8 +17,7 @@ return require("lazy").setup({
 
     "EdenEast/nightfox.nvim",
     "morhetz/gruvbox",
-    { "catppuccin/nvim", name = "catppuccin" },
-
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
@@ -31,8 +30,7 @@ return require("lazy").setup({
     -- THEMES
     "arcticicestudio/nord",
     "justinhj/battery.nvim",
-    "rebelot/kanagawa.nvim",
-
+    { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
@@ -43,8 +41,6 @@ return require("lazy").setup({
     "anuvyklack/fold-preview.nvim",
     "anuvyklack/keymap-amend.nvim",
     "folke/trouble.nvim",
-    "dstein64/vim-startuptime",
-
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -61,7 +57,7 @@ return require("lazy").setup({
     "Vimjas/vim-python-pep8-indent",
     "saadparwaiz1/cmp_luasnip",
     "windwp/nvim-autopairs",
-    { "glepnir/lspsaga.nvim", branch = "main" },
+    { "nvimdev/lspsaga.nvim", branch = "main" },
     "mfussenegger/nvim-jdtls",
     "tpope/vim-surround",
     "onsails/lspkind.nvim",
@@ -69,4 +65,5 @@ return require("lazy").setup({
     "jose-elias-alvarez/null-ls.nvim",
     "lukas-reineke/indent-blankline.nvim",
     "nvim-tree/nvim-tree.lua",
+    "ziglang/zig.vim",
 })
