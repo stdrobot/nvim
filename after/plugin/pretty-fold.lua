@@ -40,7 +40,7 @@ local config = {
     add_close_pattern = true, -- true, 'last_line' or false
 
     matchup_patterns = {
-        { "{", "}" },
+        { "{",  "}" },
         { "%(", ")" }, -- % to escape lua pattern char
         { "%[", "]" }, -- % to escape lua pattern char
     },

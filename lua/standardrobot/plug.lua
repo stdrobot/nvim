@@ -17,7 +17,7 @@ return require("lazy").setup({
 
     "EdenEast/nightfox.nvim",
     "morhetz/gruvbox",
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim",             name = "catppuccin", priority = 1000 },
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
@@ -30,7 +30,7 @@ return require("lazy").setup({
     -- THEMES
     "arcticicestudio/nord",
     "justinhj/battery.nvim",
-    { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
+    { "dasupradyumna/midnight.nvim", lazy = false,        priority = 1000 },
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
