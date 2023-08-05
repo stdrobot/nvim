@@ -24,7 +24,7 @@ local listchars = vim.opt.listchars
 -- vim.opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 listchars:append({
-    eol = "↲",
+    -- eol = "↲",
     --    tab = '»·',
     --    space = '␣',
     trail = "-",

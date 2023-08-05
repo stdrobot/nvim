@@ -75,7 +75,7 @@ local set_fallback_flags = function()
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "c",
         callback = function()
-            if name "Darwin" then
+            if name == "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=gnu2x", "-Wall" }
             else
                 fallback_flags = { "-std=gnu2x", "-Wall" }
@@ -252,6 +252,7 @@ nvimlsp["tsserver"].setup({
 
 nvimlsp["tailwindcss"].setup({
     on_attach = on_attach,
+    capabilities = cmp_capabilities,
     filetypes = {
         "astro",
         "astro-markdown",
