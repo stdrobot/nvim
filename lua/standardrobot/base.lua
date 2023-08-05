@@ -36,6 +36,7 @@ vim.opt.clipboard = "unnamed"
 vim.opt.cb = "unnamed"
 vim.opt.syntax = "on"
 vim.opt.mouse = "a"
+vim.opt.foldenable = false
 vim.opt.termguicolors = true
 vim.opt.inccommand = "nosplit"
 vim.opt.hidden = true
@@ -71,6 +72,12 @@ vim.cmd([[
     hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline
 
+    augroup remember_folds
+      autocmd!
+      au BufWinLeave *.* mkview
+      au BufWinEnter *.* silent! loadview
+    augroup END
+
     augroup set_fold_specs
         autocmd!
         autocmd VimEnter * set foldlevel=99
@@ -79,15 +86,9 @@ vim.cmd([[
         autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
     augroup END
 
-    augroup remember_folds
-      autocmd!
-      autocmd BufWinLeave *.* mkview
-      autocmd BufWinEnter *.* silent! loadview
-    augroup END
-
 ]])
 
-vim.api.nvim_create_augroup("nobg", { clear = true })
+group("nobg", { clear = true })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
     desc = "Make all backgrounds transparent",
     group = "nobg",
