@@ -38,6 +38,15 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "typescriptreact",
+    callback = function()
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+    end
+})
+
 if vim.loop.os_uname().sysname == "Darwin" then
     map("n", "<C-p>", ":!python3 %<CR>")
 elseif vim.fn.has("win32") then

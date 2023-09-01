@@ -72,12 +72,6 @@ vim.cmd([[
     hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline
 
-    augroup remember_folds
-      autocmd!
-      au BufWinLeave *.* mkview
-      au BufWinEnter *.* silent! loadview
-    augroup END
-
     augroup set_fold_specs
         autocmd!
         autocmd VimEnter * set foldlevel=99
@@ -86,6 +80,11 @@ vim.cmd([[
         autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
     augroup END
 
+    augroup remember_folds
+      autocmd!
+      autocmd BufWinLeave *.* mkview
+      autocmd BufWinEnter *.* silent! loadview
+    augroup END
 ]])
 
 group("nobg", { clear = true })
@@ -99,7 +98,6 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
-        -- etc...
     end,
 })
 --
@@ -135,5 +133,5 @@ catp.setup({
     },
 })
 nightfox.setup({ palettes = palettes, specs = specs })
-vim.cmd.colorscheme("catppuccin")
--- vim.cmd.colorscheme("nordfox")
+-- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("nordfox")

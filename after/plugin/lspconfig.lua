@@ -140,6 +140,12 @@ nvimlsp["rust_analyzer"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = cmp_capabilities,
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    root_dir = util.root_pattern(
+        "Cargo.toml",
+        "rust-project.json"
+    )
 })
 
 nvimlsp["jdtls"].setup({
