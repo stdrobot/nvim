@@ -142,10 +142,7 @@ nvimlsp["rust_analyzer"].setup({
     capabilities = cmp_capabilities,
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
-    root_dir = util.root_pattern(
-        "Cargo.toml",
-        "rust-project.json"
-    )
+    root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
 })
 
 nvimlsp["jdtls"].setup({
@@ -310,9 +307,4 @@ nvimlsp["astro"].setup({
 
 nvimlsp["zls"].setup({
     on_attach = on_attach,
-})
-
-nvimlsp["ocamlls"].setup({
-    cmd = { "ocaml-language-server", "--stdio" },
-    filetypes = { "ocaml", "reason" },
 })

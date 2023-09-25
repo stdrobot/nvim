@@ -2,7 +2,6 @@ local vim = vim
 -- Mappings
 -- Functional wrapper for mapping custom keybindings
 vim.g.mapleader = " "
-
 local bufnr = vim.api.nvim_get_current_buf()
 local bufname = vim.api.nvim_buf_get_name(bufnr)
 
@@ -40,11 +39,11 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typescriptreact", "javascript", "html", "css", "javascriptreact" },
+    pattern = { "typescriptreact", "javascript", "html", "css", "javascriptreact", "astro" },
     callback = function()
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
-    end
+    end,
 })
 
 if vim.loop.os_uname().sysname == "Darwin" then

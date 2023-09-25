@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
-    end
+    end,
 })
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -57,6 +57,7 @@ vim.g.mapleader = " "
 -- local original_color = "#2E313A"
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
 vim.cmd([[
 
     set modifiable
@@ -64,6 +65,11 @@ vim.cmd([[
     highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
     highlight CursorLineNR cterm=bold ctermfg=Black ctermbg=none
 
+    set foldlevel=99
+    set foldcolumn=0
+    set foldmethod=expr
+    set foldexpr=nvim_treesitter#foldexpr()
+    setlocal foldtext=v:lua.nvim_treesitter#foldtext()
     let &t_ut=''
     let g:SimpylFold_docstring_preview = 1
     set fileencoding=utf-8
@@ -72,13 +78,19 @@ vim.cmd([[
     hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
     hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline
 
-    augroup set_fold_specs
-        autocmd!
-        autocmd VimEnter * set foldlevel=99
-        autocmd VimEnter * set foldcolumn=0
-        autocmd VimEnter * set foldmethod=expr
-        autocmd VimEnter * set foldexpr=nvim_treesitter#foldexpr()
-    augroup END
+
+]])
+
+-- Set the fold method to 'expr' for TreeSitter folding
+vim.wo.foldmethod = "expr"
+
+-- Define the fold expression using TreeSitter
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Optional: Configure the foldtext to display fold levels
+vim.wo.foldtext = "v:lua.nvim_treesitter#foldtext()"
+
+vim.cmd([[    
 
     augroup remember_folds
       autocmd!
