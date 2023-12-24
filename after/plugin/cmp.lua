@@ -13,7 +13,7 @@ cmp.setup({
     },
 
     window = {
-        completion = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
     formatting = {
@@ -97,5 +97,15 @@ cmp.setup.filetype("gitcommit", {
         { name = "buffer" },
     }),
 })
+
+
+enabled = function()
+    local in_prompt = vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt'
+    if in_prompt then
+        return false
+    end
+    local ctx = require("cmp.config.context")
+    return not (ctx.in_treesitter_capture("comment") == true or ctx.in_syntax_group("Comment"))
+end
 
 cmp.event:on("confirm_done", cmp_npairs.on_confirm_done())

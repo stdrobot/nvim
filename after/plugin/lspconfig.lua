@@ -68,7 +68,7 @@ local set_fallback_flags = function()
             if name == "Darwin" then
                 fallback_flags = { "-target=arm64-apple-darwin", "-std=c++2a", "-Wall" }
             else
-                fallback_flags = { "-target=x86_64-w64-windows-gnu", "-std=c++20", "-Wall" }
+                fallback_flags = { "-target=x86_64-w64-windows-gnu", "-std=c++17", "-Wall" }
             end
         end,
     })
@@ -193,7 +193,7 @@ nvimlsp["dockerls"].setup({
 nvimlsp["bashls"].setup({
     on_attach = on_attach,
     capabilities = cmp_capabilities,
-    cmd = { "bash-language-server.cmd", "start" },
+    cmd = { "bash-language-server", "start" },
     cmd_env = { GLOB_PATTERN = "*@(.sh|.zshrc)" },
     root_dir = function()
         return vim.fn.getcwd()
@@ -270,7 +270,6 @@ nvimlsp["tailwindcss"].setup({
         "scss",
         "javascript",
         "javascriptreact",
-        "reason",
         "typescript",
         "typescriptreact",
         "vue",
@@ -307,4 +306,29 @@ nvimlsp["astro"].setup({
 
 nvimlsp["zls"].setup({
     on_attach = on_attach,
+})
+
+local function get_language_id()
+    -- You can use various methods to determine the language ID here.
+    -- For example, you can check the file's extension or look for specific content patterns.
+
+    -- Example: Check if the file has a .ml extension.
+    if vim.fn.expand('%:e') == 'ml' then
+        return 'ocaml' -- Set the language ID to 'ocaml' for OCaml files.
+    end
+
+    if vim.fn.expand('%:e') == 're' then
+        return 'reason'
+    end
+
+    -- Return a default language ID if no specific criteria match.
+    return 'plaintext'
+end
+nvimlsp['ocamllsp'].setup({
+    cmd = { "ocamllsp" },
+    on_attach = on_attach,
+    capabilities = cmp_capabilities,
+    get_language_id = get_language_id,
+    filetypes = { "ocaml", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+    root_dir = nvimlsp.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace")
 })

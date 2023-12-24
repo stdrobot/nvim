@@ -26,7 +26,6 @@ return require("lazy").setup({
         end,
     },
 
-    -- THEMES
     "justinhj/battery.nvim",
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     "neovim/nvim-lspconfig",
@@ -37,7 +36,8 @@ return require("lazy").setup({
     "anuvyklack/pretty-fold.nvim",
     "anuvyklack/fold-preview.nvim",
     "anuvyklack/keymap-amend.nvim",
-    -- "folke/trouble.nvim",
+    'danielo515/nvim-treesitter-reason',
+    'preservim/nerdcommenter',
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",

@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 vim.opt.tabstop = 4
+vim.o.ftplugin = 'on'
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
@@ -57,7 +58,7 @@ vim.g.mapleader = " "
 -- local original_color = "#2E313A"
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
+vim.cmd("highlight Pmenu guibg=NONE")
 vim.cmd([[
 
     set modifiable
@@ -90,7 +91,7 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- Optional: Configure the foldtext to display fold levels
 vim.wo.foldtext = "v:lua.nvim_treesitter#foldtext()"
 
-vim.cmd([[    
+vim.cmd([[
 
     augroup remember_folds
       autocmd!
@@ -110,9 +111,11 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "Pmenu", { bg = "#252525" })
     end,
 })
 --
+
 
 local palettes = {
     nordfox = {
@@ -121,6 +124,9 @@ local palettes = {
     -- Custom duskfox with black background
 }
 
+if vim.fn.expand("%:e") == "re" then
+    vim.cmd([[set filetype=reason]])
+end
 local specs = {
     nordfox = {
         syntax = {
