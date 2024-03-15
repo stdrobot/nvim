@@ -2,6 +2,7 @@ local status, nvimlsp = pcall(require, "lspconfig")
 if not status then
     return
 end
+
 local name = vim.loop.os_uname().sysname
 local util = nvimlsp.util
 
@@ -10,7 +11,11 @@ local bufname = vim.api.nvim_buf_get_name(bufnr)
 
 -- Setup nvim-cmp.
 
-local opts = { noremap = true, silent = true }
+local opts = {
+    noremap = true,
+    silent = true,
+}
+
 -- Setup nvim-cmp.
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -27,6 +32,8 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+    vim.lsp.inlay_hint.enable(bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -136,12 +143,45 @@ nvimlsp["pyright"].setup({
     },
 })
 
+local rt_ops = {
+    tools = {
+        runnables = {
+            use_telescope = true,
+        },
+        inlay_hints = {
+            auto = true,
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+}
+
+local rt_status, rust_tools = pcall(require, "rust-tools")
+if not rt_status then return end
+rust_tools.setup(rt_opts)
+
+
 nvimlsp["rust_analyzer"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = cmp_capabilities,
+    -- capabilities = cmp_capabilities,
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
+    settings = {
+        ['rust_analyzer'] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            diagnostics = {
+                enable = false,
+            }
+        }
+    },
+    single_file_support = true,
     root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
 })
 

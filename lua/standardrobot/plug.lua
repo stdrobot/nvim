@@ -29,6 +29,7 @@ return require("lazy").setup({
     "justinhj/battery.nvim",
     -- LSP + bells n whistles  autocomplete, autopairs, etc.
     "neovim/nvim-lspconfig",
+    "lvimuser/lsp-inlayhints.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -61,4 +62,15 @@ return require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     "nvim-tree/nvim-tree.lua",
     "ziglang/zig.vim",
+    "simrat39/rust-tools.nvim",
+
+    -- install without yarn or npm
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    }
+
+
 })
